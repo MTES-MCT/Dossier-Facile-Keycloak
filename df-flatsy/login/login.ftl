@@ -144,7 +144,7 @@
                                 </div>
                                             <div class="checkbox">
                                                 <label class="fr-label">
-                                                        <input required tabindex="3" id="authorize" name="authorize" type="checkbox" checked> J'autorise DossierFacile à fournir à Flatsy les informations contenues dans mon DossierFacile, et je reconnais avoir reçu le consentement de mes garants et colocataires éventuels pour fournir à Flatsy les informations les concernant.
+                                                        <input required tabindex="3" id="authorize" name="authorize" type="checkbox" checked> J'autorise DossierFacile à fournir à ${client.name} les informations contenues dans mon DossierFacile, et je reconnais avoir reçu le consentement de mes garants et colocataires éventuels pour fournir à ${client.name} les informations les concernant.
                                                 </label>
                                             </div>
 
