@@ -125,12 +125,6 @@ li {
   margin-right: 0;
 }
 
-@media (min-width: 992px) {
-  .fr-nav__list {
-      flex-direction: row-reverse;
-  }
-}
-
 .full-width {
   max-width: 100% !important;
   padding-left: 0;

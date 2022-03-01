@@ -9,7 +9,7 @@
     <meta name="robots" content="noindex, nofollow">
     <link rel="stylesheet" href="${url.resourcesPath}/dsfr/dist/css/dsfr.min.css">
     <link rel="stylesheet" href="${url.resourcesPath}/css/fc.163719.css">
-    <link rel="stylesheet" href="${url.resourcesPath}/css/global.1055.css">
+    <link rel="stylesheet" href="${url.resourcesPath}/css/global.1755.css">
     <script>
       launchAnalytics = function() {
         var head = document.getElementsByTagName('head')[0];
@@ -168,16 +168,13 @@
               </a>
             </li>
             <li class="fr-nav__item">
-              <a
-                href="https://www.dossierfacile.fr/information"
-                class="fr-nav__link"
-              >
-                En savoir plus
+              <a href="https://www.dossierfacile.fr/blog" class="fr-nav__link">
+                Blog
               </a>
             </li>
             <li class="fr-nav__item">
-              <a href="https://www.dossierfacile.fr/blog" class="fr-nav__link">
-                Blog
+              <a href="https://www.dossierfacile.fr/information" class="fr-nav__link">
+                En savoir plus
               </a>
             </li>
           </ul>
