@@ -1,0 +1,10 @@
+////
+/// Pagination Legacy
+/// @group pagination
+////
+
+@import 'index';
+@import 'style/scheme';
+@import 'style/legacy';
+
+@include _pagination-scheme(true);

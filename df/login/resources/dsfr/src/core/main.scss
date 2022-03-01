@@ -1,7 +1,15 @@
-/* ------------------------------------ *\
-  CORE
-\* ------------------------------------ */
+////
+/// Core Main
+/// @group core
+////
 
-@import './index';
-@import 'styles/module';
-@import 'styles/schemes';
+/* ¯¯¯¯¯¯¯¯¯ *\
+  CORE
+\* ˍˍˍˍˍˍˍˍˍ */
+
+@import '../media-query-order';
+@import 'index';
+@import 'style/module';
+@import 'style/scheme';
+
+@include _core-scheme;

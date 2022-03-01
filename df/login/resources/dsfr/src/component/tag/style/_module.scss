@@ -1,0 +1,8 @@
+////
+/// Tag Module
+/// @group tag
+////
+
+@include build-tag();
+@import 'module/variants';
+@import 'module/group';

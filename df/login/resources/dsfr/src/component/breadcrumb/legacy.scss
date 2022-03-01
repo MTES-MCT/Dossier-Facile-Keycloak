@@ -1,0 +1,10 @@
+////
+/// Breadcrumb Legacy
+/// @group core
+////
+
+@import 'index';
+@import 'style/scheme';
+@import 'style/legacy';
+
+@include _breadcrumb-scheme(true);

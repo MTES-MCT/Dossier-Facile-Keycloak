@@ -1,0 +1,15 @@
+////
+/// Follow Main
+/// @group follow
+////
+
+/* ¯¯¯¯¯¯¯¯¯ *\
+  FOLLOW
+\* ˍˍˍˍˍˍˍˍˍ */
+
+@import '../../media-query-order';
+@import 'index';
+@import 'style/module';
+@import 'style/scheme';
+
+@include _follow-scheme;

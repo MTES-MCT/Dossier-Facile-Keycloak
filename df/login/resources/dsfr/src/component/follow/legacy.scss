@@ -1,0 +1,10 @@
+////
+/// Follow Legacy
+/// @group core
+////
+
+@import 'index';
+@import 'style/scheme';
+@import 'style/legacy';
+
+@include _follow-scheme(true);

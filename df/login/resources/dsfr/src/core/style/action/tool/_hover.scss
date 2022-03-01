@@ -1,0 +1,72 @@
+////
+/// Core Tool : Action Hover
+/// @group core
+////
+
+@mixin hover-media-query () {
+  @media (hover: hover) and (pointer: fine) {
+    @content;
+  }
+}
+
+@mixin hover-type-selector($elements, $type: all, $check-disabled: false) {
+  $selectors: ();
+
+  @each $element, $setting in $elements {
+    $hover: map-get($setting, hover);
+    $selector: map-get($setting, selector);
+    @if $hover {
+      @if $type == map-get($hover, type) or $type == all {
+        $nested: $selector;
+        @if $check-disabled {
+          $nested: nest($selector, map-get($hover, selector));
+        }
+        $associated: $nested;
+        @if & != null and quote(&) != ':root' {
+          $associated: selector-associate(quote(&), $nested);
+        }
+        $selectors: append($selectors, $associated, 'comma');
+      }
+    }
+  }
+
+  @at-root #{$selectors} {
+    @content;
+  }
+}
+
+@mixin hover-blend($background-images: (), $background-sizes: (), $background-positions: ()) {
+  --hsla: #{css-hsl-alpha(var(--blend), var(--a))};
+  --blend-size: 0; // 2048px 2048px;
+  --blend-position: 50%;
+  --a: 0;
+
+  @include hover-blend-background($background-images, $background-sizes, $background-positions);
+
+  &:hover {
+    --a: #{$hover-alpha};
+  }
+
+  &:active {
+    --a: #{$active-alpha};
+  }
+}
+
+@mixin hover-blend-background-size($background-sizes: ()) {
+  background-size: $background-sizes, var(--blend-size);
+}
+
+@mixin hover-blend-background($background-images: (), $background-sizes: (), $background-positions: ()) {
+  background-repeat: no-repeat;
+  @include hover-blend-background-size($background-sizes);
+  background-position: $background-positions, var(--blend-position);
+  background-image: $background-images, radial-gradient(circle at center, var(--hsla), var(--hsla) 3%);
+}
+
+@mixin enable-blend() {
+  --blend-full-size: 100%;
+}
+
+@mixin disable-blend() {
+  --blend-full-size: 0;
+}
