@@ -1,9 +1,8 @@
-FROM quay.io/keycloak/keycloak:latest
+FROM quay.io/keycloak/keycloak-x:latest
 ENV TZ=Europe/Paris
-COPY keycloak-franceconnect-2.4-SNAPSHOT.jar /opt/jboss/keycloak/standalone/deployments
-COPY keycloak-rest-provider-1.0-SNAPSHOT.jar /opt/jboss/keycloak/standalone/deployments
-RUN mkdir /opt/jboss/keycloak/themes/df
-ADD df  /opt/jboss/keycloak/themes/df
-ADD df-partner  /opt/jboss/keycloak/themes/df-partner
+COPY keycloak-franceconnect-4.1.0.jar /opt/keycloak/standalone/deployments
+COPY keycloak-rest-provider-1.0-SNAPSHOT.jar /opt/keycloak/standalone/deployments
+RUN mkdir /opt/keycloak/themes/df
+ADD df  /opt/keycloak/themes/df
 EXPOSE 8080
 

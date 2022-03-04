@@ -7,7 +7,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noindex, nofollow">
-    <link rel="stylesheet" href="${url.resourcesPath}/dsfr/dist/css/dsfr.min.css">
+    <link rel="stylesheet" href="${url.resourcesPath}/dsfr/dist/dsfr/dsfr.min.css">
     <link rel="stylesheet" href="${url.resourcesPath}/css/fc.163719.css">
     <link rel="stylesheet" href="${url.resourcesPath}/css/global.1755.css">
     <script>
@@ -210,8 +210,8 @@
 
     </div>
   </div>
-    <script type="module" src="${url.resourcesPath}/dsfr/dist/js/dsfr.module.min.js"></script>
-    <script type="text/javascript" nomodule src="${url.resourcesPath}/dsfr/dist/js/dsfr.nomodule.min.js"></script>
+    <script type="module" src="${url.resourcesPath}/dsfr/dist/dsfr/dsfr.module.min.js"></script>
+    <script type="text/javascript" nomodule src="${url.resourcesPath}/dsfr/dist/dsfr/dsfr.nomodule.min.js"></script>
 </body>
 </html>
 </#macro>
