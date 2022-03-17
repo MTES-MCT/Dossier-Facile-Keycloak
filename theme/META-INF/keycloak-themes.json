@@ -1,0 +1,6 @@
+{
+    "themes": [{
+        "name" : "df",
+        "types": [ "account", "admin", "login", "email" ]
+    }]
+}
