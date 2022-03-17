@@ -5,4 +5,3 @@ COPY keycloak-rest-provider-1.0-SNAPSHOT.jar /opt/keycloak/standalone/deployment
 RUN mkdir /opt/keycloak/themes/df
 ADD df  /opt/keycloak/themes/df
 EXPOSE 8080
-

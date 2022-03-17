@@ -48,7 +48,12 @@
                 <div>
                     <h1 class="fr-mt-2w fr-h2 blue-text text-center">Connexion à mon compte DossierFacile</h1>
                     <#if realm.password && social.providers??>
-                        <div id="kc-social-providers" class="fr-mt-5w fr-mb-1w text-center ${properties.kcFormSocialAccountSectionClass!}">
+                        <div class="text-center">
+                            <div class="fr-mt-2w fr-mb-2w small-text">
+                            FranceConnect est la solution proposée par l’État pour sécuriser et simplifier la connexion à vos services en ligne
+                            </div>
+                        </div>
+                        <div id="kc-social-providers" class="fr-mt-3w fr-mb-1w text-center ${properties.kcFormSocialAccountSectionClass!}">
                             <ul class="${properties.kcFormSocialAccountListClass!} <#if social.providers?size gt 3>${properties.kcFormSocialAccountListGridClass!}</#if>">
                                 <#list social.providers as p>
                                     <a id="social-${p.alias}" class="inline-block ${properties.kcFormSocialAccountListButtonClass!} <#if social.providers?size gt 3>${properties.kcFormSocialAccountGridItem!}</#if>"
@@ -63,14 +68,10 @@
                                 </#list>
                             </ul>
                         </div>
-                        <div class="text-center">
+                        <div class="text-center fr-mb-2w">
                             <a href="https://app.franceconnect.gouv.fr/en-savoir-plus" id="cQuoiFCGauche" target="_blank" rel="noopener">
                                 Qu'est-ce que FranceConnect?
                             </a>
-                            <br>
-                            <div class="fr-mt-2w fr-mb-5w small-text">
-                            FranceConnect est la solution proposée par l’État pour sécuriser et simplifier la connexion à vos services en ligne
-                            </div>
                         </div>
 
                             <div class="separator"> Ou </div>
