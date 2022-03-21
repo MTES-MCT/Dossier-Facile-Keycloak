@@ -1,0 +1,10 @@
+////
+/// Tile Legacy
+/// @group tile
+////
+
+@import 'index';
+@import 'style/scheme';
+@import 'style/legacy';
+
+@include _tile-scheme(true);

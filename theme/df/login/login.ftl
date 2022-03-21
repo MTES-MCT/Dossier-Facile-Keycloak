@@ -125,13 +125,14 @@
                                 <div class="fr-mt-5w ${properties.kcFormGroupClass!} ${properties.kcFormSettingClass!}">
                                     <div id="kc-form-options">
                                         <#if realm.rememberMe && !usernameEditDisabled??>
-                                            <div class="checkbox">
-                                                <label class="fr-label">
+                                            <div class="fr-checkbox-group">
                                                     <#if login.rememberMe??>
-                                                        <input tabindex="3" id="rememberMe" name="rememberMe" type="checkbox" checked> Se souvenir de moi
+                                                        <input tabindex="3" id="rememberMe" name="rememberMe" type="checkbox" checked>
                                                     <#else>
-                                                        <input tabindex="3" id="rememberMe" name="rememberMe" type="checkbox"> Se souvenir de moi
+                                                        <input tabindex="3" id="rememberMe" name="rememberMe" type="checkbox">
                                                     </#if>
+                                                <label class="fr-label" for="rememberMe">
+                                                  Se souvenir de moi
                                                 </label>
                                             </div>
                                         </#if>

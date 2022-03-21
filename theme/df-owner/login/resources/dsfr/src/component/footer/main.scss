@@ -1,0 +1,15 @@
+////
+/// Footer Main
+/// @group footer
+////
+
+/* ¯¯¯¯¯¯¯¯¯ *\
+  FOOTER
+\* ˍˍˍˍˍˍˍˍˍ */
+
+@import '../../media-query-order';
+@import 'index';
+@import 'style/module';
+@import 'style/scheme';
+
+@include _footer-scheme;
