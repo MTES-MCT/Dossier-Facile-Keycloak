@@ -1,0 +1,10 @@
+////
+/// Table Legacy
+/// @group table
+////
+
+@import 'index';
+@import 'style/scheme';
+@import 'style/legacy';
+
+@include _table-scheme(true);

@@ -1,0 +1,15 @@
+////
+/// Core Main
+/// @group core
+////
+
+/* ¯¯¯¯¯¯¯¯¯ *\
+  CORE
+\* ˍˍˍˍˍˍˍˍˍ */
+
+@import '../media-query-order';
+@import 'index';
+@import 'style/module';
+@import 'style/scheme';
+
+@include _core-scheme;

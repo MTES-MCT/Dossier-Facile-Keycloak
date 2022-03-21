@@ -1,0 +1,10 @@
+////
+/// Tab Legacy
+/// @group tab
+////
+
+@import 'index';
+@import 'style/scheme';
+@import 'style/legacy';
+
+@include _tab-scheme(true);

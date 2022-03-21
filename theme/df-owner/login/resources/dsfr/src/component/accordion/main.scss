@@ -1,0 +1,14 @@
+////
+/// Accordion Main
+/// @group accordion
+////
+
+/* ¯¯¯¯¯¯¯¯¯ *\
+  ACCORDION
+\* ˍˍˍˍˍˍˍˍˍ */
+
+@import 'index';
+@import 'style/module';
+@import 'style/scheme';
+
+@include _accordion-scheme;

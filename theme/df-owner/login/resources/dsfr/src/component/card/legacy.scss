@@ -1,0 +1,10 @@
+////
+/// Card Legacy
+/// @group core
+////
+
+@import 'index';
+@import 'style/scheme';
+@import 'style/legacy';
+
+@include _card-scheme(true);

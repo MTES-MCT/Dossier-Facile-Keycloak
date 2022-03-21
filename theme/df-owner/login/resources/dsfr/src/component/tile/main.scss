@@ -1,0 +1,14 @@
+////
+/// Tile Main
+/// @group tile
+////
+
+/* ¯¯¯¯¯¯¯¯¯ *\
+  TILE
+\* ˍˍˍˍˍˍˍˍˍ */
+
+@import 'index';
+@import 'style/module';
+@import 'style/scheme';
+
+@include _tile-scheme;
