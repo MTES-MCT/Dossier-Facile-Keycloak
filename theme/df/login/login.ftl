@@ -85,7 +85,11 @@
                       <#if message.type = 'error'><span class="${properties.kcFeedbackErrorIcon!}"></span></#if>
                       <#if message.type = 'info'><span class="${properties.kcFeedbackInfoIcon!}"></span></#if>
                   </div>
+                    <#if message.summary != 'Identifiez vous afin de lier votre compte avec oidc'>
                       <span class="${properties.kcAlertTitleClass!}">${kcSanitize(message.summary)?no_esc}</span>
+                    <#else>
+                      <span class="small-text">Identifiez vous afin de lier votre compte avec FranceConnect</span>
+                    </#if>
               </div>
           </#if>
 
