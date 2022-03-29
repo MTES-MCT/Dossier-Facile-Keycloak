@@ -449,36 +449,36 @@
 	margin-top: 0;
     }
     
-    a.zocial.franceconnect-particulier {
+    a.zocial.oidc {
 	background: url(../fc/franceconnect-bouton@2x.png) no-repeat left top;
 	height: 70px;
 	width: auto;
 	padding-top: 60px;
     }
     
-    a.zocial.franceconnect-particulier:hover {
+    a.zocial.oidc:hover {
 	background: url(../fc/franceconnect-bouton-hover@2x.png) no-repeat left top !important;
 	height: 70px;
 	width: auto;
     }
     
-    a.zocial.franceconnect-particulier span {
+    a.zocial.oidc span {
 	display:none;
     }
     
-    a#social-franceconnect-particulier {
+    a#social-oidc {
 	background: url(../fc/franceconnect-bouton.png) no-repeat left top;
 	height: 60px;
 	width: 230px;
        
     }
     
-    a#social-franceconnect-particulier:hover {
+    a#social-oidc:hover {
 	background: url(../fc/franceconnect-bouton-hover.png) no-repeat left top !important;
 	height: 60px;
 	width: 230px;
     }
     
-    a#social-franceconnect-particulier span {
+    a#social-oidc span {
 	display:none;
     }
