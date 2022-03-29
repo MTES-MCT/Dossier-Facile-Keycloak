@@ -2,55 +2,57 @@
 <@layout.registrationLayout displayMessage=!messagesPerField.existsError('username','password') displayInfo=realm.password && realm.registrationAllowed && !registrationDisabled??; section>
     <#if section = "header">
     <#elseif section = "form">
-    <div class="fr-container fr-container--fluid full-width">
+    <div class="fr-container fr-container--fluid fluid-full-width">
         <div class="fr-grid-row">
-            <div class="fr-col-lg-6 fr-col-12">
+            <div class="fr-col-lg-6 fr-col-12" >
               <div class="bg-pic">
                 <div class="bg-white max-450 left-row fr-pt-3w fr-mt-7w fr-mb-7w">
-                <h2 class="fr-h5 blue-text text-center fr-mt-3w">En route pour rejoindre DossierFacile !</h2>
-                <div class="fr-pl-2w fr-pr-2w">
-                Afin de faciliter la constitution de votre dossier, préparez les pièces suivantes :
-                </div>
-                <div class="bg-purple blue-text fr-pr-2w fr-pl-2w fr-pt-3w fr-pb-3w">
-                    <ul>
-                        <li>
-                        Une pièce d’identité
-                        </li>
-                        <li>
-                        Un justificatif de domicile
-                        </li>
-                        <li>
-                        Un justificatif de situation professionnelle
-                        </li>
-                        <li>
-                        Des justificatifs de ressources
-                        </li>
-                        <li>
-                        Votre dernier avis d’imposition
-                        </li>
-                    </ul>
+                    <h2 class="fr-h5 blue-text text-center fr-mt-3w">En route pour rejoindre DossierFacile !</h2>
+                    <div class="fr-pl-2w fr-pr-2w">
+                        Afin de faciliter la constitution de votre dossier, préparez les pièces suivantes :
+                    </div>
+                    <div class="bg-purple blue-text fr-pr-2w fr-pl-2w fr-pt-3w fr-pb-3w">
+                        <ul>
+                            <li>
+                            Une pièce d’identité
+                            </li>
+                            <li>
+                            Un justificatif de domicile
+                            </li>
+                            <li>
+                            Un justificatif de situation professionnelle
+                            </li>
+                            <li>
+                            Des justificatifs de ressources
+                            </li>
+                            <li>
+                            Votre dernier avis d’imposition
+                            </li>
+                        </ul>
                     Pour vos garants ces mêmes pièces vous seront demandées.
-                </div>
-                <div class="fr-pl-2w fr-pr-2w">
-                    <p class="fr-mt-3w">
-                        Vous avez tout ?! Super !<br>
-                        Commençons par sécuriser votre compte !
-                    </p>
-                </div>
+                    </div>
+                    <div class="fr-pl-2w fr-pr-2w">
+                        <p class="fr-mt-3w">
+                            Vous avez tout ?! Super !<br />
+                            Commençons par sécuriser votre compte !
+                        </p>
+                    </div>
                 </div>
               </div>
             </div>
             <div class="fr-col-lg-6 fr-col-12 bg-white">
                 <div class="fr-mt-2w align-end">
-                    <a tabindex="6" href="https://locataire.dossierfacile.fr/signup" class="fr-tag">Nouveau sur DossierFacile ? Se créer un compte</a>
+                    <a tabindex="6" href="https://${properties.appTenantUrl}/signup" class="fr-tag">
+                        ${ msg("login.signup-link") }
+                    </a>
                 </div>
                 <div id="kc-form" class="margin-auto max-400">
                 <div>
-                    <h1 class="fr-mt-2w fr-h2 blue-text text-center">Connexion à mon compte DossierFacile</h1>
+                    <h1 class="fr-mt-2w fr-h2 blue-text text-center">${ msg("login.connection") }</h1>
                     <#if realm.password && social.providers??>
                         <div class="text-center">
                             <div class="fr-mt-2w fr-mb-2w small-text">
-                            FranceConnect est la solution proposée par l’État pour sécuriser et simplifier la connexion à vos services en ligne
+                            ${ msg("login.france-connect") }
                             </div>
                         </div>
                         <div id="kc-social-providers" class="fr-mt-3w fr-mb-1w text-center ${properties.kcFormSocialAccountSectionClass!}">
@@ -74,24 +76,25 @@
                             </a>
                         </div>
 
-                            <div class="separator"> Ou </div>
+                        <div class="separator"> Ou </div>
                     </#if>
 
-          <#if !messagesPerField.existsError('username','password') && message?has_content && (message.type != 'warning' || !isAppInitiatedAction??)>
-              <div class="fr-mt-2w alert-${message.type} ${properties.kcAlertClass!} pf-m-<#if message.type = 'error'>danger<#else>${message.type}</#if>">
-                  <div class="pf-c-alert__icon">
-                      <#if message.type = 'success'><span class="${properties.kcFeedbackSuccessIcon!}"></span></#if>
-                      <#if message.type = 'warning'><span class="${properties.kcFeedbackWarningIcon!}"></span></#if>
-                      <#if message.type = 'error'><span class="${properties.kcFeedbackErrorIcon!}"></span></#if>
-                      <#if message.type = 'info'><span class="${properties.kcFeedbackInfoIcon!}"></span></#if>
-                  </div>
-                    <#if message.summary != 'Identifiez vous afin de lier votre compte avec oidc'>
-                      <span class="${properties.kcAlertTitleClass!}">${kcSanitize(message.summary)?no_esc}</span>
-                    <#else>
-                      <span class="small-text">Identifiez vous afin de lier votre compte avec FranceConnect</span>
-                    </#if>
-              </div>
-          </#if>
+
+                  <#if !messagesPerField.existsError('username','password') && message?has_content && (message.type != 'warning' || !isAppInitiatedAction??)>
+                      <div class="fr-mt-2w alert-${message.type} ${properties.kcAlertClass!} pf-m-<#if message.type = 'error'>danger<#else>${message.type}</#if>">
+                          <div class="pf-c-alert__icon">
+                              <#if message.type = 'success'><span class="${properties.kcFeedbackSuccessIcon!}"></span></#if>
+                              <#if message.type = 'warning'><span class="${properties.kcFeedbackWarningIcon!}"></span></#if>
+                              <#if message.type = 'error'><span class="${properties.kcFeedbackErrorIcon!}"></span></#if>
+                              <#if message.type = 'info'><span class="${properties.kcFeedbackInfoIcon!}"></span></#if>
+                          </div>
+                            <#if message.summary != 'Identifiez vous afin de lier votre compte avec oidc'>
+                              <span class="${properties.kcAlertTitleClass!}">${kcSanitize(message.summary)?no_esc}</span>
+                            <#else>
+                              <span class="small-text">Identifiez vous afin de lier votre compte avec FranceConnect</span>
+                            </#if>
+                      </div>
+                  </#if>
 
                     <div id="kc-form-wrapper">
                         <#if realm.password>
@@ -122,7 +125,7 @@
                                     />
                                     <div style="float:right">
                                     <a tabindex="6"
-                                                        href="https://locataire.dossierfacile.fr/forgotten-password" class="blue-text">Mot de passe oublié</a>
+                                                        href="https://${properties.appTenantUrl}/forgotten-password" class="blue-text">Mot de passe oublié</a>
                                                         </div>
                                 </div>
 
@@ -162,14 +165,12 @@
                                 </div>
                             </form>
                         </#if>
-                        </div>
-
                     </div>
-                </div>
                 </div>
             </div>
         </div>
     </div>
+
     <#elseif section = "info" >
         <#if realm.password && realm.registrationAllowed && !registrationDisabled??>
         </#if>

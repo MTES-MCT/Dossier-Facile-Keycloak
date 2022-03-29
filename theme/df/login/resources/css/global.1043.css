@@ -1,6 +1,7 @@
+
 body {
   min-height: 100vh;
-  background-color: var(--g100);
+  background-color: #f8f8f8;
 }
 
 .logo {
@@ -10,7 +11,7 @@ body {
 
 .bg-white {
   background-color: white;
-  padding: 8px;
+  padding: 16px;
 }
 
 .bg-purple {
@@ -63,7 +64,7 @@ body {
 
 .bg-pic {
   background: linear-gradient(rgba(0, 0, 0, 0.527), rgba(0, 0, 0, 0.5)),
-    url("./Immeuble.jpg") no-repeat;
+    url("../img/Immeuble.webp") no-repeat;
   background-size: cover;
   height: 100%;
   overflow: hidden;
@@ -129,4 +130,20 @@ li {
   max-width: 100% !important;
   padding-left: 0;
   padding-right: 0;
+}
+
+.fluid-full-width {
+    max-width: 100%!important;
+    padding-left: 0!important;
+    padding-right: 0!important;
+}
+
+.lang {
+  box-shadow: none;
+}
+.underline {
+  text-decoration: underline;
+}
+#app{
+padding-bottom: 2px;
 }
