@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noindex, nofollow">
     <link rel="stylesheet" href="${url.resourcesPath}/dsfr/dist/dsfr/dsfr.min.css">
-    <link rel="stylesheet" href="${url.resourcesPath}/css/fc.163719.css">
+    <link rel="stylesheet" href="${url.resourcesPath}/css/fc.094909.css">
     <link rel="stylesheet" href="${url.resourcesPath}/css/global.1447.css">
     <script>
       launchAnalytics = function() {
