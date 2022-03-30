@@ -9,7 +9,7 @@
     <meta name="robots" content="noindex, nofollow">
     <link rel="stylesheet" href="${url.resourcesPath}/dsfr/dist/dsfr/dsfr.min.css">
     <link rel="stylesheet" href="${url.resourcesPath}/css/fc.094909.css">
-    <link rel="stylesheet" href="${url.resourcesPath}/css/global.1755.css">
+    <link rel="stylesheet" href="${url.resourcesPath}/css/global.1249.css">
     <script>
       launchAnalytics = function() {
         var head = document.getElementsByTagName('head')[0];
@@ -47,6 +47,28 @@
         }
 })
     </script>
+    <script>
+    // set page language according "lang" cookie
+    var match = document.cookie.match('lang=([^;]*)');
+    var lang = match[1];
+    document.cookie = "KEYCLOAK_LOCALE=" + match[1];
+
+
+    window.onload = function(){
+            document.getElementById("lang_" + lang).className += " underline";
+        }
+
+    function changeLocale() {
+        if (lang === 'en'){
+            document.cookie = 'lang=fr';
+            document.cookie = 'KEYCLOAK_LOCALE=fr'
+        } else {
+            document.cookie = 'lang=en';
+            document.cookie = 'KEYCLOAK_LOCALE=en'
+        }
+        window.location.href = window.location.href;
+    }
+    </script>
 
     <#if properties.meta?has_content>
         <#list properties.meta?split(' ') as meta>
@@ -80,8 +102,7 @@
 <body class="${properties.kcBodyClass!}">
 <div class="${properties.kcLoginClass!}">
     <div class="${properties.kcFormCardClass!}">
-
-
+        <div id="app">
 
   <header role="banner" class="fr-header">
     <div class="fr-header__body">
@@ -126,16 +147,25 @@
             <div class="fr-header__tools-links">
               <ul class="fr-links-group">
                 <li class="li-margin">
-                  <a href="https://locataire.dossierfacile.fr/account"
+                  <a href="https://${properties.appTenantUrl}/account"
                     class="fr-btn fr-ml-3 fr-btn--sm"
                   >
-                    Mon dossier
+                    ${msg("header.signup")}
                   </a>
                 </li>
                 <li class="li-margin">
                   <a href="https://proprietaire.dossierfacile.fr" class="fr-btn fr-btn--secondary fr-btn--sm">
-                    Espace propriétaire
+                     ${msg("header.owner")}
                   </a>
+                </li>
+                <li>
+                  <button
+                    class="fr-btn fr-ml-3 fr-btn--secondary fr-btn--sm lang"
+                    onClick="changeLocale();"
+                  >
+                    <span id="lang_fr" class="">FR</span> |
+                    <span id="lang_en" class="">EN</span>
+                  </button>
                 </li>
               </ul>
             </div>
@@ -164,17 +194,17 @@
                 target="_blank"
                 rel="noreferrer"
               >
-                Aide
+                ${msg("menu.faq")}
               </a>
             </li>
             <li class="fr-nav__item">
               <a href="https://www.dossierfacile.fr/blog" class="fr-nav__link">
-                Blog
+                ${msg("menu.blog")}
               </a>
             </li>
             <li class="fr-nav__item">
               <a href="https://www.dossierfacile.fr/information" class="fr-nav__link">
-                En savoir plus
+                ${msg("menu.information")}
               </a>
             </li>
           </ul>
@@ -182,7 +212,7 @@
       </div>
     </div>
   </header>
-
+    <article class="page">
       <div id="kc-content">
         <div id="kc-content-wrapper">
 
@@ -207,9 +237,13 @@
           </#if>
         </div>
       </div>
-
+    </article>
     </div>
+    <#include "./common/footer.ftl">
   </div>
+  </div>
+
+
     <script type="module" src="${url.resourcesPath}/dsfr/dist/dsfr/dsfr.module.min.js"></script>
     <script type="text/javascript" nomodule src="${url.resourcesPath}/dsfr/dist/dsfr/dsfr.nomodule.min.js"></script>
 </body>
