@@ -34,11 +34,15 @@
 
  .align-right {
    margin-top: 0;
-   @media (min-width: 768px) {
+   
+ }
+
+@media (min-width: 768px) {
+  .align-right {
      text-align: right;
      margin-right: 0;
    }
- }
+}
 
  .fa-icon {
    height: 1.5rem;
@@ -51,6 +55,13 @@
 
  .beta-logo {
    padding: 1em;
+ }
+
+.fr-footer__bottom-item:first-child {
+    margin: 0.5rem 0 0;
+}
+ .fr-footer__bottom-item {
+    margin: 0.5rem 0 0 0.5rem;
  }
  </style>
  <footer class="fr-footer" role="contentinfo" id="footer">
@@ -112,7 +123,7 @@
               href="${APP_DOCS_URL}"
               target="_blank"
               rel="noreferrer"
-              :title="$t('faq-link-title')"
+              title="${msg('footer.faq-link-title')}"
             >
               ${msg("footer.faq") }
             </a>
@@ -145,7 +156,7 @@
               class="fr-footer__bottom-link"
               href="${APP_MAIN_URL}/accessibilite"
               target="_blank"
-              title="${msg("footer.accessibility-link")}"
+              title="${msg('footer.accessibility-link')}"
               >${msg("footer.accessibility") }</a
             >
           </li>
@@ -179,7 +190,7 @@
               href="https://partenaire.dossierfacile.fr"
               target="_blank"
               rel="noreferrer"
-              :title="$t('partner-link-title')"
+              title="${msg('footer.partner-link-title')}"
             >
               ${msg("footer.partner") }
             </a>

@@ -100,7 +100,7 @@
                         <#if realm.password>
                             <form id="kc-form-login" onsubmit="login.disabled = true; return true;" action="${url.loginAction}" method="post">
                                 <div class="fr-mt-3w ${properties.kcFormGroupClass!}">
-                                    <label for="username" class="fr-label ${properties.kcLabelClass!}">Votre e-mail :</label>
+                                    <label for="username" class="fr-label ${properties.kcLabelClass!}">${ msg("login.email") }</label>
 
                                     <#if usernameEditDisabled??>
                                         <input tabindex="1" id="username" class="fr-input ${properties.kcInputClass!}" name="username" value="${(login.username!'')}" type="text" disabled />
@@ -118,7 +118,7 @@
                                 </div>
 
                                 <div class="fr-mt-2w ${properties.kcFormGroupClass!}">
-                                    <label for="password" class="fr-label ${properties.kcLabelClass!}">Votre mot de passe :</label>
+                                    <label for="password" class="fr-label ${properties.kcLabelClass!}">${ msg("login.password") }</label>
 
                                     <input tabindex="2" id="password" class="fr-input ${properties.kcInputClass!}" name="password" type="password" autocomplete="off"
                                         aria-invalid="<#if messagesPerField.existsError('username','password')>true</#if>"

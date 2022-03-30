@@ -9,7 +9,7 @@
     <meta name="robots" content="noindex, nofollow">
     <link rel="stylesheet" href="${url.resourcesPath}/dsfr/dist/dsfr/dsfr.min.css">
     <link rel="stylesheet" href="${url.resourcesPath}/css/fc.094909.css">
-    <link rel="stylesheet" href="${url.resourcesPath}/css/global.1043.css">
+    <link rel="stylesheet" href="${url.resourcesPath}/css/global.1249.css">
     <script>
       launchAnalytics = function() {
         var head = document.getElementsByTagName('head')[0];
