@@ -4,7 +4,7 @@
     <#elseif section = "form">
     <div class="fr-container fr-container--fluid full-width">
         <div class="fr-grid-row">
-            <div class="fr-col-lg-6 fr-col-12">
+            <div class="fr-col-lg-6 fr-col-12" >
               <div class="bg-pic">
                 <div class="bg-white max-450 left-row fr-pt-3w fr-mt-7w fr-mb-7w">
                     <h2 class="fr-h5 blue-text text-center fr-mt-3w">DossierFacile Bailleur</h2>
@@ -37,11 +37,11 @@
                 </div>
                 <div id="kc-form" class="margin-auto max-400">
                 <div>
-                    <h1 class="fr-mt-2w fr-h2 blue-text text-center">Connexion à mon compte DossierFacile</h1>
+                    <h1 class="fr-mt-2w fr-h2 blue-text text-center">${ msg("login.connection") }</h1>
                     <#if realm.password && social.providers??>
                         <div class="text-center">
                             <div class="fr-mt-2w fr-mb-2w small-text">
-                            FranceConnect est la solution proposée par l’État pour sécuriser et simplifier la connexion à vos services en ligne
+                            ${ msg("login.france-connect") }
                             </div>
                         </div>
                         <div id="kc-social-providers" class="fr-mt-3w fr-mb-1w text-center ${properties.kcFormSocialAccountSectionClass!}">
@@ -65,26 +65,27 @@
                             </a>
                         </div>
 
-                            <div class="separator"> Ou </div>
+                        <div class="separator"> Ou </div>
                     </#if>
 
-          <#if !messagesPerField.existsError('username','password') && message?has_content && (message.type != 'warning' || !isAppInitiatedAction??)>
-              <div class="fr-mt-2w alert-${message.type} ${properties.kcAlertClass!} pf-m-<#if message.type = 'error'>danger<#else>${message.type}</#if>">
-                  <div class="pf-c-alert__icon">
-                      <#if message.type = 'success'><span class="${properties.kcFeedbackSuccessIcon!}"></span></#if>
-                      <#if message.type = 'warning'><span class="${properties.kcFeedbackWarningIcon!}"></span></#if>
-                      <#if message.type = 'error'><span class="${properties.kcFeedbackErrorIcon!}"></span></#if>
-                      <#if message.type = 'info'><span class="${properties.kcFeedbackInfoIcon!}"></span></#if>
-                  </div>
-                      <span class="${properties.kcAlertTitleClass!}">${kcSanitize(message.summary)?no_esc}</span>
-              </div>
-          </#if>
+
+                  <#if !messagesPerField.existsError('username','password') && message?has_content && (message.type != 'warning' || !isAppInitiatedAction??)>
+                      <div class="fr-mt-2w alert-${message.type} ${properties.kcAlertClass!} pf-m-<#if message.type = 'error'>danger<#else>${message.type}</#if>">
+                          <div class="pf-c-alert__icon">
+                              <#if message.type = 'success'><span class="${properties.kcFeedbackSuccessIcon!}"></span></#if>
+                              <#if message.type = 'warning'><span class="${properties.kcFeedbackWarningIcon!}"></span></#if>
+                              <#if message.type = 'error'><span class="${properties.kcFeedbackErrorIcon!}"></span></#if>
+                              <#if message.type = 'info'><span class="${properties.kcFeedbackInfoIcon!}"></span></#if>
+                          </div>
+                          <span class="${properties.kcAlertTitleClass!}">${kcSanitize(message.summary)?no_esc}</span>
+                       </div>
+                    </#if>
 
                     <div id="kc-form-wrapper">
                         <#if realm.password>
                             <form id="kc-form-login" onsubmit="login.disabled = true; return true;" action="${url.loginAction}" method="post">
                                 <div class="fr-mt-3w ${properties.kcFormGroupClass!}">
-                                    <label for="username" class="fr-label ${properties.kcLabelClass!}">Votre e-mail :</label>
+                                    <label for="username" class="fr-label ${properties.kcLabelClass!}">${ msg("login.email") }</label>
 
                                     <#if usernameEditDisabled??>
                                         <input tabindex="1" id="username" class="fr-input ${properties.kcInputClass!}" name="username" value="${(login.username!'')}" type="text" disabled />
@@ -102,14 +103,14 @@
                                 </div>
 
                                 <div class="fr-mt-2w ${properties.kcFormGroupClass!}">
-                                    <label for="password" class="fr-label ${properties.kcLabelClass!}">Votre mot de passe :</label>
+                                    <label for="password" class="fr-label ${properties.kcLabelClass!}">${ msg("login.password") }</label>
 
                                     <input tabindex="2" id="password" class="fr-input ${properties.kcInputClass!}" name="password" type="password" autocomplete="off"
                                         aria-invalid="<#if messagesPerField.existsError('username','password')>true</#if>"
                                     />
                                     <div style="float:right">
                                     <a tabindex="6"
-                                                        href="https://locataire.dossierfacile.fr/forgotten-password" class="blue-text">Mot de passe oublié</a>
+                                                        href="https://${properties.appOwnerUrl}/mot-de-passe-oublie" class="blue-text">Mot de passe oublié</a>
                                                         </div>
                                 </div>
 
@@ -149,14 +150,12 @@
                                 </div>
                             </form>
                         </#if>
-                        </div>
-
                     </div>
-                </div>
                 </div>
             </div>
         </div>
     </div>
+
     <#elseif section = "info" >
         <#if realm.password && realm.registrationAllowed && !registrationDisabled??>
         </#if>

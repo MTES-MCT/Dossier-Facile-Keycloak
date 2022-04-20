@@ -2,5 +2,9 @@
     "themes": [{
         "name" : "df",
         "types": [ "account", "admin", "login", "email" ]
+    },
+    {
+        "name" : "df-owner",
+        "types": [ "account", "admin", "login", "email" ]
     }]
 }
