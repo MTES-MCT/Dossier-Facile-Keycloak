@@ -33,7 +33,9 @@
             </div>
             <div class="fr-col-lg-6 fr-col-12 bg-white">
                 <div class="fr-mt-2w align-end">
-                    <a tabindex="6" href="https://locataire.dossierfacile.fr/signup" class="fr-tag">Nouveau sur DossierFacile ? Se créer un compte</a>
+                    <a tabindex="6" href="https://${properties.appOwnerUrl}/creation" class="fr-tag">
+                        ${ msg("login.signup-link") }
+                    </a>
                 </div>
                 <div id="kc-form" class="margin-auto max-400">
                 <div>
