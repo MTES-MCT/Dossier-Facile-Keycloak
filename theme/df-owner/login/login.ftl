@@ -138,13 +138,6 @@
                                         </div>
 
                                 </div>
-                                  <#if client.name != "dossierfacile">
-                                            <div class="checkbox">
-                                                <label class="fr-label">
-                                                        <input required tabindex="3" id="authorize" name="authorize" type="checkbox" checked> J'autorise DossierFacile à fournir à ${client.name} les informations contenues dans mon DossierFacile, et je reconnais avoir reçu le consentement de mes garants et colocataires éventuels pour fournir à ${client.name} les informations les concernant.
-                                                </label>
-                                            </div>
-                                  </#if>
 
                                 <div id="kc-form-buttons" class="${properties.kcFormGroupClass!} fr-mb-5w">
                                     <input type="hidden" id="id-hidden-input" name="credentialId" <#if auth.selectedCredential?has_content>value="${auth.selectedCredential}"</#if>/>
