@@ -144,13 +144,13 @@
             </li>
 
             <li>
-              <button class="fr-btn fr-ml-3 fr-btn--sm" onClick="location.href = '${VUE_APP_OWNER_URL}">
+              <button class="fr-btn fr-btn--secondary fr-ml-3 fr-btn--sm" onClick="location.href = '${VUE_APP_OWNER_URL}">
                 <span class="material-icons" aria-hidden="true">apartment</span>
                 ${msg('header.owner') }
               </button>
             </li>
             <li>
-              <button class="fr-btn fr-btn--sm">
+              <button class="fr-btn fr-btn--secondary fr-btn--sm">
                 <a
                   class="fr-external-link"
                   href="https://partenaire.dossierfacile.fr"
