@@ -108,7 +108,11 @@ ul.fr-follow {
       <div class="fr-footer__bottom">
         <ul class="fr-footer__bottom-list">
           <li class="fr-footer__bottom-item">
-            <a class="fr-footer__bottom-link" href="https://beta.gouv.fr/">
+            <a
+              class="fr-footer__bottom-link"
+              target="_blank"
+              rel="noreferrer"
+            href="https://beta.gouv.fr/">
               Les startups d'Etat
             </a>
           </li>
@@ -116,7 +120,6 @@ ul.fr-follow {
             <a
               class="fr-footer__bottom-link"
               href="${VUE_APP_MAIN_URL}/accessibilite`"
-              target="_blank"
               title="${msg('accessibility-link')}"
               >${ msg('footer.accessibility') }</a
             >
@@ -154,7 +157,7 @@ ul.fr-follow {
               href="https://partenaire.dossierfacile.fr"
               target="_blank"
               rel="noreferrer"
-              title="${msg('partner-link-title')}"
+              title="${msg('footer.partner-link-title')}"
             >
               ${ msg('footer.partner') }
             </a>
@@ -162,6 +165,8 @@ ul.fr-follow {
           <li class="fr-footer__bottom-item">
             <a
               class="fr-footer__bottom-link"
+              target="_blank"
+              rel="noreferrer"
               href="https://github.com/MTES-MCT/Dossier-Facile-Frontend"
             >
               ${ msg('footer.sources') }
