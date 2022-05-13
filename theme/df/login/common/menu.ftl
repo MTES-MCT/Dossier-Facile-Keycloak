@@ -12,20 +12,17 @@
  .lang {
 	 box-shadow: none;
 }
- .blue {
-	 color: var(--text-action-high-blue-france);
-}
  .fr-nav__item {
 	 position: relative;
+}
+ .fr-nav__item .fr-nav__link[aria-current] .fr-tag {
+	 color: var(--text-action-high-blue-france) !important;
 }
  @media all and (min-width: 768px) {
 	 .fr-nav__item .tag-container {
 		 padding-top: 0.75rem;
 		 padding-bottom: 0.4rem;
 	}
-}
- .fr-nav__item .tag-container .fr-tag {
-	 color: var(--text-action-high-blue-france);
 }
  @media all and (max-width: 768px) {
 	 .fr-nav__item .tag-container .fr-tag {
@@ -35,9 +32,6 @@
 		 color: inherit;
 		 font-size: inherit;
 	}
-}
- .fr-nav__item .fr-external-link {
-	 color: var(--text-action-high-blue-france);
 }
  .fr-nav__item a.fr-external-link::after {
 	 content: "";
@@ -57,14 +51,13 @@
 	 padding-right: 0.25rem;
 }
  @media all and (max-width: 768px) {
-	 span.material-icons, span.material-icons-outlined {
+	 span.material-icons.contact,span.material-icons-outlined.contact {
 		 display: none;
 	}
 }
  fr-breadcrumb {
 	 margin: 0;
 }
- 
 </style>
   <ul class="fr-nav__list">
     <li class="fr-nav__item">
@@ -92,11 +85,9 @@
       <a
         href="https://www.dossierfacile.fr/contact`"
         class="fr-nav__link tag-container"
-        target="_blank"
-        rel="noreferrer"
       >
         <div class="fr-tag">
-          <span class="material-icons" aria-hidden="true">mail_outline</span>
+          <span class="contact material-icons" aria-hidden="true">mail_outline</span>
           ${msg('menu.contact-us') }
         </div>
       </a>
