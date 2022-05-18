@@ -83,7 +83,7 @@
     </li>
     <li class="fr-nav__item">
       <a
-        href="https://www.dossierfacile.fr/contact`"
+        href="https://www.dossierfacile.fr/contact"
         class="fr-nav__link tag-container"
       >
         <div class="fr-tag">
