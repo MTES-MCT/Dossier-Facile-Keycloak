@@ -54,10 +54,9 @@
     var lang = match[1];
     document.cookie = "KEYCLOAK_LOCALE=" + match[1];
 
-
     window.onload = function(){
-            document.getElementById("lang_" + lang).className += " underline";
-        }
+        document.getElementById("lang_" + lang).className += " underline";
+    }
 
     function changeLocale() {
         if (lang === 'en'){
@@ -98,6 +97,8 @@
             <script src="${script}" type="text/javascript"></script>
         </#list>
     </#if>
+    <script type="text/javascript">!function(e,t,n){function a(){var e=t.getElementsByTagName("script")[0],n=t.createElement("script");n.type="text/javascript",n.async=!0,n.src="https://beacon-v2.helpscout.net",e.parentNode.insertBefore(n,e)}if(e.Beacon=n=function(t,n,a){e.Beacon.readyQueue.push({method:t,options:n,data:a})},n.readyQueue=[],"complete"===t.readyState)return a();e.attachEvent?e.attachEvent("onload",a):e.addEventListener("load",a,!1)}(window,document,window.Beacon||function(){});</script>
+    <script type="text/javascript">window.Beacon('init', 'e9f4da7d-11be-4b40-9514-ac7ce3e68f67')</script>
 </head>
 
 <body class="${properties.kcBodyClass!}">
