@@ -7,9 +7,10 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noindex, nofollow">
-    <link rel="stylesheet" href="${url.resourcesPath}/dsfr/dist/dsfr/dsfr.min.css">
-    <link rel="stylesheet" href="${url.resourcesPath}/css/fc.094909.css">
-    <link rel="stylesheet" href="${url.resourcesPath}/css/global.1249.css">
+    <link rel="stylesheet" href="${url.resourcesPath}/dsfr/dist/dsfr/dsfr.min.css?t=20220510">
+    <link rel="stylesheet" href="${url.resourcesPath}/css/fc.css?t=20220510">
+    <link rel="stylesheet" href="${url.resourcesPath}/css/global.css?t=20220510">
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined" rel="stylesheet">
     <script>
       launchAnalytics = function() {
         var head = document.getElementsByTagName('head')[0];
@@ -55,8 +56,8 @@
 
 
     window.onload = function(){
-            document.getElementById("lang_" + lang).className += " underline";
-        }
+        document.getElementById("lang_" + lang).className += " underline";
+    }
 
     function changeLocale() {
         if (lang === 'en'){
@@ -97,6 +98,8 @@
             <script src="${script}" type="text/javascript"></script>
         </#list>
     </#if>
+    <script type="text/javascript">!function(e,t,n){function a(){var e=t.getElementsByTagName("script")[0],n=t.createElement("script");n.type="text/javascript",n.async=!0,n.src="https://beacon-v2.helpscout.net",e.parentNode.insertBefore(n,e)}if(e.Beacon=n=function(t,n,a){e.Beacon.readyQueue.push({method:t,options:n,data:a})},n.readyQueue=[],"complete"===t.readyState)return a();e.attachEvent?e.attachEvent("onload",a):e.addEventListener("load",a,!1)}(window,document,window.Beacon||function(){});</script>
+    <script type="text/javascript">window.Beacon('init', 'e9f4da7d-11be-4b40-9514-ac7ce3e68f67')</script>
 </head>
 
 <body class="${properties.kcBodyClass!}">
@@ -104,114 +107,7 @@
     <div class="${properties.kcFormCardClass!}">
         <div id="app">
 
-  <header role="banner" class="fr-header">
-    <div class="fr-header__body">
-      <div class="fr-container">
-        <div class="fr-header__body-row">
-          <div class="fr-header__brand fr-enlarge-link">
-            <div class="fr-header__brand-top">
-              <div class="fr-header__logo">
-                <p class="fr-logo">
-                  République<br />
-                  française
-                </p>
-              </div>
-              <div class="fr-header__navbar">
-                <button
-                  class="fr-btn--menu fr-btn"
-                  data-fr-opened="false"
-                  aria-controls="modal-dc"
-                  aria-haspopup="menu"
-                  title="Menu"
-                >
-                  Menu
-                </button>
-              </div>
-            </div>
-            <div class="fr-header__service">
-              <a
-                href="https://www.dossierfacile.fr"
-                title="Retour à l’accueil"
-              >
-                <p class="fr-header__service-title">
-                  <img class="logo" src="${url.resourcesPath}/logo/logo_dossierfacile.webp" alt="logo" />
-                </p>
-              </a>
-              <p class="fr-header__service-tagline">
-                DossierFacile, le dossier de location numérique de l’État
-              </p>
-            </div>
-          </div>
-
-          <div class="fr-header__tools">
-            <div class="fr-header__tools-links">
-              <ul class="fr-links-group">
-                <li class="li-margin">
-                  <a href="https://${properties.appOwnerUrl}/account"
-                    class="fr-btn fr-ml-3 fr-btn--sm"
-                  >
-                    ${msg("header.signup")}
-                  </a>
-                </li>
-                <li class="li-margin">
-                  <a href="https://proprietaire.dossierfacile.fr" class="fr-btn fr-btn--secondary fr-btn--sm">
-                     ${msg("header.owner")}
-                  </a>
-                </li>
-                <li>
-                  <button
-                    class="fr-btn fr-ml-3 fr-btn--secondary fr-btn--sm lang"
-                    onClick="changeLocale();"
-                  >
-                    <span id="lang_fr" class="">FR</span> |
-                    <span id="lang_en" class="">EN</span>
-                  </button>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Navigation principale -->
-    <div class="fr-header__menu fr-modal" id="modal-dc">
-      <div class="fr-container">
-        <button class="fr-link--close fr-link" aria-controls="modal-dc">
-          Fermer
-        </button>
-        <div class="fr-header__menu-links"></div>
-        <nav
-          class="fr-nav"
-          id="navigation-832"
-          role="navigation"
-          aria-label="Menu principal"
-        >
-          <ul class="fr-nav__list">
-            <li class="fr-nav__item">
-              <a
-                href="https://docs.dossierfacile.fr"
-                class="fr-nav__link"
-                target="_blank"
-                rel="noreferrer"
-              >
-                ${msg("menu.faq")}
-              </a>
-            </li>
-            <li class="fr-nav__item">
-              <a href="https://www.dossierfacile.fr/blog" class="fr-nav__link">
-                ${msg("menu.blog")}
-              </a>
-            </li>
-            <li class="fr-nav__item">
-              <a href="https://www.dossierfacile.fr/information" class="fr-nav__link">
-                ${msg("menu.information")}
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </div>
-  </header>
+    <#include "./common/header.ftl">
     <article class="page">
       <div id="kc-content">
         <div id="kc-content-wrapper">
