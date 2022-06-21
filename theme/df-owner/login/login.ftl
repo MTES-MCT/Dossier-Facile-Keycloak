@@ -24,7 +24,7 @@
                               🤩 Recevoir des candidatures DossierFacile, complétées, organisées et vérifiées.
                             </li>
                             <li class="fr-mb-3w">
-                              😇 Choissir votre futur locataire en toute sérénité !
+                              😇 Choisir votre futur locataire en toute sérénité !
                             </li>
                         </ul>
                     </div>
