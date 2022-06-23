@@ -13,11 +13,10 @@ body {
   margin: 8px;
   border-radius: 4px;
   background-color: #e5e5f4;
-
 }
 
 .blue-text {
- color: #000091;
+  color: #000091;
 }
 
 .inline-block {
@@ -38,6 +37,10 @@ body {
 
 .max-400 {
   max-width: 400px;
+}
+
+.unbox {
+  box-shadow: none;
 }
 
 .fr-btn {

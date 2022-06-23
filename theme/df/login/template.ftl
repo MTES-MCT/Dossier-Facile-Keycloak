@@ -8,8 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noindex, nofollow">
     <link rel="stylesheet" href="${url.resourcesPath}/dsfr/dist/dsfr/dsfr.min.css?t=20220510">
-    <link rel="stylesheet" href="${url.resourcesPath}/css/fc.css?t=20220510">
-    <link rel="stylesheet" href="${url.resourcesPath}/css/global.css?t=20220510">
+    <link rel="stylesheet" href="${url.resourcesPath}/css/fc.css?t=20220610">
+    <link rel="stylesheet" href="${url.resourcesPath}/css/global.css?t=20220623">
     <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined" rel="stylesheet">
     <script>
       launchAnalytics = function() {

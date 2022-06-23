@@ -8,9 +8,6 @@
 	 width: 290px;
 	 max-width: 290px;
 }
- .fr-btn--secondary {
-	 box-shadow: none;
-}
 
  @media all and (max-width: 768px) {
 	 .fr-header__service-tagline {
@@ -94,7 +91,7 @@
             <div class="fr-header__tools-links">
               <ul class="fr-links-group">
                 <li>
-                  <button class="fr-btn fr-ml-3 fr-btn--secondary fr-btn--sm"
+                  <button class="fr-btn fr-ml-3 fr-btn--secondary unbox fr-btn--sm"
                     onclick="location.href = '${VUE_APP_TENANT_URL}';"
                   >
                     <span class="material-icons-outlined" aria-hidden="true">
@@ -142,7 +139,7 @@
 
             <li>
               <button
-                class="fr-btn fr-ml-3 fr-btn--secondary fr-btn--sm"
+                class="fr-btn fr-ml-3 fr-btn--secondary unbox fr-btn--sm"
                 onClick="location.href = '${VUE_APP_TENANT_URL}/account';"
               >
                 <span class="material-icons-outlined" aria-hidden="true">
@@ -153,13 +150,13 @@
             </li>
 
             <li>
-              <button class="fr-btn fr-btn--secondary fr-ml-3 fr-btn--sm" onClick="location.href = '${VUE_APP_OWNER_URL}">
+              <button class="fr-btn fr-btn--secondary unbox fr-ml-3 fr-btn--sm" onClick="location.href = '${VUE_APP_OWNER_URL}">
                 <span class="material-icons" aria-hidden="true">apartment</span>
                 ${msg('header.owner') }
               </button>
             </li>
             <li>
-              <button class="fr-btn fr-btn--secondary fr-btn--sm">
+              <button class="fr-btn fr-btn--secondary unbox fr-btn--sm">
                 <a
                   class="fr-external-link"
                   href="https://partenaire.dossierfacile.fr"
