@@ -1,4 +1,3 @@
-<#assign VUE_APP_MAIN_URL="https://www.dossierfacile.fr">
 <#assign VUE_APP_DOCS_URL="https://docs.dossierfacile.fr">
 
  <style>
@@ -119,7 +118,7 @@ ul.fr-follow {
           <li class="fr-footer__bottom-item">
             <a
               class="fr-footer__bottom-link"
-              href="${VUE_APP_MAIN_URL}/accessibilite`"
+              href="${properties.appMainUrl}/accessibilite`"
               title="${msg('accessibility-link')}"
               >${ msg('footer.accessibility') }</a
             >
@@ -127,7 +126,7 @@ ul.fr-follow {
           <li class="fr-footer__bottom-item">
             <a
               class="fr-footer__bottom-link"
-              href="${VUE_APP_MAIN_URL}/mentions-legales"
+              href="${properties.appMainUrl}/mentions-legales"
             >
               ${ msg('footer.legals') }
             </a>
@@ -135,7 +134,7 @@ ul.fr-follow {
           <li class="fr-footer__bottom-item">
             <a
               class="fr-footer__bottom-link"
-              href="${VUE_APP_MAIN_URL}/stats"
+              href="${properties.appMainUrl}/stats"
             >
               ${ msg('footer.statistics') }
             </a>
