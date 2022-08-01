@@ -1,6 +1,3 @@
-<#assign VUE_APP_MAIN_URL="https://www.dossierfacile.fr">
-<#assign VUE_APP_TENANT_URL="https://locataire.dossierfacile.fr">
-<#assign VUE_APP_OWNER_URL="https://proprietaire.dossierfacile.fr">
 <#assign VUE_APP_DOCS_URL="https://docs.dossierfacile.fr">
 
 <style>
@@ -75,7 +72,7 @@
               </div>
             </div>
             <div class="fr-header__service">
-              <a href="${VUE_APP_MAIN_URL}" title="Dossier Facile - Accueil">
+              <a href="${properties.appMainUrl}" title="Dossier Facile - Accueil">
                 <p class="fr-header__service-title">
                   <img
                     class="logo"
@@ -92,7 +89,7 @@
               <ul class="fr-links-group">
                 <li>
                   <button class="fr-btn fr-ml-3 fr-btn--secondary unbox fr-btn--sm"
-                    onclick="location.href = '${VUE_APP_TENANT_URL}';"
+                    onclick="location.href = '${properties.appTenantUrl}/login';"
                   >
                     <span class="material-icons-outlined" aria-hidden="true">
                       account_circle
@@ -101,7 +98,7 @@
                   </button>
                 </li>
                 <li>
-                  <button class="fr-btn fr-btn--sm" onclick="location.href = '${VUE_APP_OWNER_URL}';">
+                  <button class="fr-btn fr-btn--sm" onclick="location.href = '${properties.appOwnerUrl}';">
                     <span class="material-icons" aria-hidden="true"
                       >apartment</span
                     >
@@ -140,7 +137,7 @@
             <li>
               <button
                 class="fr-btn fr-ml-3 fr-btn--secondary unbox fr-btn--sm"
-                onClick="location.href = '${VUE_APP_TENANT_URL}/account';"
+                onClick="location.href = '${properties.appTenantUrl}/account';"
               >
                 <span class="material-icons-outlined" aria-hidden="true">
                   account_circle
@@ -150,7 +147,7 @@
             </li>
 
             <li>
-              <button class="fr-btn fr-btn--secondary unbox fr-ml-3 fr-btn--sm" onClick="location.href = '${VUE_APP_OWNER_URL}">
+              <button class="fr-btn fr-btn--secondary unbox fr-ml-3 fr-btn--sm" onClick="location.href = '${properties.appOwnerUrl}">
                 <span class="material-icons" aria-hidden="true">apartment</span>
                 ${msg('header.owner') }
               </button>
