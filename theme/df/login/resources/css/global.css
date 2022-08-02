@@ -170,3 +170,21 @@ li {
     margin-top: 0;
     text-align: right;
 }
+
+.my-file {
+  color: #fff;
+}
+
+.my-file-subtitle {
+  color: #fff;
+  font-size: 1.25rem;
+}
+
+.left-row {
+  margin-left: auto;
+  margin-right: 32px;
+}
+
+.max-550 {
+  max-width: 550px;
+}
