@@ -1,0 +1,22 @@
+name: Add Keycloak JAR Asset
+on:
+  release:
+    types: [published]
+
+jobs:
+  build-release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build jar
+        run: jar cf Dossier-Facile-Keycloak-${{github.ref_name}}.jar LICENSE META-INF theme
+      - name: Upload Release Asset with jar
+        id: upload-release-asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: ./Dossier-Facile-Keycloak-${{github.ref_name}}.jar
+          asset_name: Dossier-Facile-Keycloak-${{github.ref_name}}.jar
+          asset_content_type: application/zip

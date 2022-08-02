@@ -118,15 +118,15 @@ ul.fr-follow {
           <li class="fr-footer__bottom-item">
             <a
               class="fr-footer__bottom-link"
-              href="${properties.appMainUrl}/accessibilite`"
-              title="${msg('accessibility-link')}"
+              href="https://${properties.appMainUrl}/accessibilite`"
+              title="https://${msg('accessibility-link')}"
               >${ msg('footer.accessibility') }</a
             >
           </li>
           <li class="fr-footer__bottom-item">
             <a
               class="fr-footer__bottom-link"
-              href="${properties.appMainUrl}/mentions-legales"
+              href="https://${properties.appMainUrl}/mentions-legales"
             >
               ${ msg('footer.legals') }
             </a>
@@ -134,7 +134,7 @@ ul.fr-follow {
           <li class="fr-footer__bottom-item">
             <a
               class="fr-footer__bottom-link"
-              href="${properties.appMainUrl}/stats"
+              href="https://${properties.appMainUrl}/stats"
             >
               ${ msg('footer.statistics') }
             </a>
