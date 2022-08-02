@@ -6,37 +6,31 @@
         <div class="fr-grid-row">
             <div class="fr-col-lg-6 fr-col-12" >
               <div class="bg-pic">
-                <div class="bg-white max-450 left-row fr-pt-3w fr-mt-7w fr-mb-7w">
-                    <div class="fr-h5 blue-text text-center fr-mt-3w">En route pour rejoindre DossierFacile !</div>
-                    <div class="fr-pl-2w fr-pr-2w">
-                        Afin de faciliter la constitution de votre dossier, préparez les pièces suivantes :
-                    </div>
-                    <div class="bg-purple blue-text fr-pr-2w fr-pl-2w fr-pt-3w fr-pb-3w">
-                        <ul>
-                            <li>
-                            Une pièce d’identité
-                            </li>
-                            <li>
-                            Un justificatif de domicile
-                            </li>
-                            <li>
-                            Un justificatif de situation professionnelle
-                            </li>
-                            <li>
-                            Des justificatifs de ressources
-                            </li>
-                            <li>
-                            Votre dernier avis d’imposition
-                            </li>
-                        </ul>
-                    Pour vos garants ces mêmes pièces vous seront demandées.
-                    </div>
-                    <div class="fr-pl-2w fr-pr-2w">
-                        <p class="fr-mt-3w">
-                            Vous avez tout ?! Super !<br />
-                            Commençons par sécuriser votre compte !
-                        </p>
-                    </div>
+                <div class="max-550 left-row fr-pt-3w fr-mt-7w fr-mb-7w">
+                  <h2 class="fr-h4 my-file">
+                    Mon dossier de location avec <em>Dossier</em>Facile
+                  </h2>
+                  <p class="my-file-subtitle">
+                    Vous êtes sur le point de compléter votre dossier de location
+                    <strong>vérifié par l'État !</strong>
+                  </p>
+                </div>
+                <div class="bg-white max-550 left-row fr-p-md-5w fr-mt-7w fr-mb-7w">
+                  <p><em>Dossier</em><strong>Facile</strong> vous aide :</p>
+                  <p>
+                    🔐 à constituer un
+                    <strong>dossier numérique conforme, sécurisé</strong> et
+                    <strong>facile à transmettre</strong> au bailleur.
+                  </p>
+                  <p>
+                    🤔 à connaître
+                    <strong><u>la liste des documents à fournir</u></strong> dans un
+                    dossier de location pour éviter les pièges !
+                  </p>
+                  <p>
+                    🤩 à <strong>rassurer votre futur propriétaire</strong> pour
+                    <strong>décrocher le logement de vos rêves !</strong>
+                  </p>
                 </div>
               </div>
             </div>
