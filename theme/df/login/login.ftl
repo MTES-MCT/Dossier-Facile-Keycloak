@@ -104,9 +104,9 @@
                                         />
 
                                         <#if messagesPerField.existsError('username','password')>
-                                            <span id="input-error" class="${properties.kcInputErrorMessageClass!}" aria-live="polite">
-                                                    ${kcSanitize(messagesPerField.getFirstError('username','password'))?no_esc}
-                                            </span>
+                                            <div id="input-error" class="fr-mt-1w ${properties.kcInputErrorMessageClass!}" aria-live="polite">
+                                                    ${kcSanitize(messagesPerField.getFirstError('username','password')?replace("{}", properties.appTenantUrl))?no_esc}
+                                            </div>
                                         </#if>
                                     </#if>
                                 </div>
