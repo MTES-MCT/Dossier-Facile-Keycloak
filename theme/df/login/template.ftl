@@ -1,6 +1,6 @@
 <#macro registrationLayout bodyClass="" displayInfo=false displayMessage=true displayRequiredFields=false showAnotherWayIfPresent=true>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" class="${properties.kcHtmlClass!}" lang="fr" data-fr-scheme="light">
+<html xmlns="http://www.w3.org/1999/xhtml" class="${properties.kcHtmlClass!}" lang="fr">
 
 <head>
     <meta charset="utf-8">
@@ -139,6 +139,9 @@
   </div>
   </div>
 
+
+    <script type="module" src="${url.resourcesPath}/dsfr/dist/dsfr/dsfr.module.min.js"></script>
+    <script type="text/javascript" nomodule src="${url.resourcesPath}/dsfr/dist/dsfr/dsfr.nomodule.min.js"></script>
 </body>
 </html>
 </#macro>
