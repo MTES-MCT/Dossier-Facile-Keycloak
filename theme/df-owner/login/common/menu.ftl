@@ -97,8 +97,7 @@
         class="fr-nav__link fr-btn fr-ml-3 fr-btn--secondary fr-btn--sm lang blue"
         onClick="changeLocale();"
       >
-         <span id="lang_fr" class="">FR</span> |
-         <span id="lang_en" class="">EN</span>
+        <span id="language_switch">English version</span>
       </button>
     </li>
   </ul>

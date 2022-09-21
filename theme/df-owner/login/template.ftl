@@ -54,9 +54,9 @@
     var lang = match[1];
     document.cookie = "KEYCLOAK_LOCALE=" + match[1];
 
-
     window.onload = function(){
-        document.getElementById("lang_" + lang).className += " underline";
+        const languageSwitchLabel = lang === 'en' ? "Version française" : "English version";
+        document.getElementById("language_switch").innerText = languageSwitchLabel;
     }
 
     function changeLocale() {
