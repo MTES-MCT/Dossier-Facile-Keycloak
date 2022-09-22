@@ -91,35 +91,33 @@
             <div class="fr-header__tools-links">
               <ul class="fr-links-group">
                 <li>
-                  <button class="fr-btn fr-ml-3 fr-btn--secondary unbox fr-btn--sm"
-                    onclick="location.href = 'https://${properties.appTenantUrl}/login';"
+                  <a class="fr-btn fr-ml-3 fr-btn--secondary unbox fr-btn--sm"
+                    href="https://${properties.appTenantUrl}/login"
                   >
                     <span class="material-icons-outlined" aria-hidden="true">
                       account_circle
                     </span>
                     ${msg('header.signup') }
-                  </button>
+                  </a>
                 </li>
                 <li>
-                  <button class="fr-btn fr-btn--sm" onclick="location.href = 'https://${properties.appOwnerUrl}';">
+                  <a class="fr-btn fr-btn--sm" href="https://${properties.appOwnerUrl}">
                     <span class="material-icons" aria-hidden="true"
                       >apartment</span
                     >
                     ${msg('header.owner') }
-                  </button>
+                  </a>
                 </li>
                 <li>
-                  <button class="fr-btn fr-btn--sm">
-                    <a
-                      class="fr-external-link"
-                      href="https://partenaire.dossierfacile.fr"
-                      target="_blank"
-                      rel="noreferrer"
-                      :title="$msg('partner-link-title')"
-                    >
-                      ${msg('header.partner') }
-                    </a>
-                  </button>
+                  <a
+                    class="fr-external-link fr-btn fr-btn--sm"
+                    href="https://partenaire.dossierfacile.fr"
+                    target="_blank"
+                    rel="noreferrer"
+                    :title="$msg('partner-link-title')"
+                  >
+                    ${msg('header.partner') }
+                  </a>
                 </li>
               </ul>
             </div>
