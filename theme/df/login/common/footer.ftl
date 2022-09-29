@@ -118,7 +118,14 @@ ul.fr-follow {
           <li class="fr-footer__bottom-item">
             <a
               class="fr-footer__bottom-link"
-              href="https://${properties.appMainUrl}/accessibilite`"
+              href="https://${properties.appMainUrl}/plan-du-site">
+              ${ msg('footer.sitemap') }
+            </a>
+          </li>
+          <li class="fr-footer__bottom-item">
+            <a
+              class="fr-footer__bottom-link"
+              href="https://${properties.appMainUrl}/accessibilite"
               title="https://${msg('accessibility-link')}"
               >${ msg('footer.accessibility') }</a
             >
