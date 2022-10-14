@@ -1,3 +1,19 @@
+<div class="fr-skiplinks">
+    <nav class="fr-container" role="navigation" aria-label="Accès rapide">
+        <ul class="fr-skiplinks__list">
+            <li>
+                <a class="fr-link" href="#social-oidc">Connexion avec FranceConnect</a>
+            </li>
+            <li>
+                <a class="fr-link" href="#username">Connexion avec e-mail</a>
+            </li>
+            <li>
+                <a class="fr-link" href="#footer">Pied de page</a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
 <#import "template.ftl" as layout>
 <@layout.registrationLayout displayMessage=!messagesPerField.existsError('username','password') displayInfo=realm.password && realm.registrationAllowed && !registrationDisabled??; section>
     <#if section = "header">
@@ -36,7 +52,7 @@
             </div>
             <div class="fr-col-lg-6 fr-col-12 bg-white">
                 <div class="fr-mt-2w align-end">
-                    <a tabindex="6" href="https://${properties.appTenantUrl}/signup" class="fr-tag">
+                    <a href="https://${properties.appTenantUrl}/signup" class="fr-tag">
                         ${ msg("login.signup-link") }
                     </a>
                 </div>
@@ -97,9 +113,9 @@
                                     <label for="username" class="fr-label ${properties.kcLabelClass!}">${ msg("login.email") }</label>
 
                                     <#if usernameEditDisabled??>
-                                        <input tabindex="1" id="username" class="fr-input ${properties.kcInputClass!}" name="username" value="${(login.username!'')}" type="text" disabled />
+                                        <input id="username" class="fr-input ${properties.kcInputClass!}" name="username" value="${(login.username!'')}" type="text" disabled />
                                     <#else>
-                                        <input tabindex="1" id="username" class="fr-input ${properties.kcInputClass!}" name="username" value="${(login.username!'')}"  type="text" autofocus autocomplete="off"
+                                        <input id="username" class="fr-input ${properties.kcInputClass!}" name="username" value="${(login.username!'')}"  type="text" autocomplete="off"
                                             aria-invalid="<#if messagesPerField.existsError('username','password')>true</#if>"
                                         />
 
@@ -114,12 +130,11 @@
                                 <div class="fr-mt-2w ${properties.kcFormGroupClass!}">
                                     <label for="password" class="fr-label ${properties.kcLabelClass!}">${ msg("login.password") }</label>
 
-                                    <input tabindex="2" id="password" class="fr-input ${properties.kcInputClass!}" name="password" type="password" autocomplete="off"
+                                    <input id="password" class="fr-input ${properties.kcInputClass!}" name="password" type="password" autocomplete="off"
                                         aria-invalid="<#if messagesPerField.existsError('username','password')>true</#if>"
                                     />
                                     <div style="float:right">
-                                    <a tabindex="6"
-                                                        href="https://${properties.appTenantUrl}/forgotten-password" class="blue-text">Mot de passe oublié</a>
+                                    <a href="https://${properties.appTenantUrl}/forgotten-password" class="blue-text">Mot de passe oublié</a>
                                                         </div>
                                 </div>
 
@@ -128,9 +143,9 @@
                                         <#if realm.rememberMe && !usernameEditDisabled??>
                                             <div class="fr-checkbox-group">
                                                     <#if login.rememberMe??>
-                                                        <input tabindex="3" id="rememberMe" name="rememberMe" type="checkbox" checked>
+                                                        <input id="rememberMe" name="rememberMe" type="checkbox" checked>
                                                     <#else>
-                                                        <input tabindex="3" id="rememberMe" name="rememberMe" type="checkbox">
+                                                        <input id="rememberMe" name="rememberMe" type="checkbox">
                                                     </#if>
                                                 <label class="fr-label" for="rememberMe">
                                                   Se souvenir de moi
@@ -140,7 +155,7 @@
                                         </div>
                                         <div class="${properties.kcFormOptionsWrapperClass!}">
                                             <#if realm.resetPasswordAllowed>
-                                                <span><a tabindex="5" href="${url.loginResetCredentialsUrl}">${msg("doForgotPassword")}</a></span>
+                                                <span><a href="${url.loginResetCredentialsUrl}">${msg("doForgotPassword")}</a></span>
                                             </#if>
                                         </div>
 
@@ -150,14 +165,14 @@
                                   <#elseif client.name != "dossierfacile" >
                                         <div class="checkbox">
                                             <label class="fr-label">
-                                                    <input required tabindex="3" id="authorize" name="authorize" type="checkbox" checked> J'autorise DossierFacile à fournir à ${client.name} les informations contenues dans mon DossierFacile, et je reconnais avoir reçu le consentement de mes garants et colocataires éventuels pour fournir à ${client.name} les informations les concernant.
+                                                    <input required id="authorize" name="authorize" type="checkbox" checked> J'autorise DossierFacile à fournir à ${client.name} les informations contenues dans mon DossierFacile, et je reconnais avoir reçu le consentement de mes garants et colocataires éventuels pour fournir à ${client.name} les informations les concernant.
                                             </label>
                                         </div>
                                   </#if>
 
                                 <div id="kc-form-buttons" class="${properties.kcFormGroupClass!} fr-mb-5w">
                                     <input type="hidden" id="id-hidden-input" name="credentialId" <#if auth.selectedCredential?has_content>value="${auth.selectedCredential}"</#if>/>
-                                    <input tabindex="4" class="fr-btn ${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonBlockClass!} ${properties.kcButtonLargeClass!}" name="login" id="kc-login" type="submit" value="Se connecter"/>
+                                    <input class="fr-btn ${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonBlockClass!} ${properties.kcButtonLargeClass!}" name="login" id="kc-login" type="submit" value="Se connecter"/>
                                 </div>
                             </form>
                         </#if>
