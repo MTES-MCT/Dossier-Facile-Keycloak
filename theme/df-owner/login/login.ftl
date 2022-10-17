@@ -110,7 +110,7 @@
                                     <#if usernameEditDisabled??>
                                         <input id="username" class="fr-input ${properties.kcInputClass!}" name="username" value="${(login.username!'')}" type="text" disabled />
                                     <#else>
-                                        <input id="username" class="fr-input ${properties.kcInputClass!}" name="username" value="${(login.username!'')}"  type="text" autofocus autocomplete="off"
+                                        <input id="username" class="fr-input ${properties.kcInputClass!}" name="username" value="${(login.username!'')}"  type="text" autofocus autocomplete="email"
                                             aria-invalid="<#if messagesPerField.existsError('username','password')>true</#if>"
                                         />
 
@@ -125,7 +125,7 @@
                                 <div class="fr-mt-2w ${properties.kcFormGroupClass!}">
                                     <label for="password" class="fr-label ${properties.kcLabelClass!}">${ msg("login.password") }</label>
 
-                                    <input id="password" class="fr-input ${properties.kcInputClass!}" name="password" type="password" autocomplete="off"
+                                    <input id="password" class="fr-input ${properties.kcInputClass!}" name="password" type="password" autocomplete="current-password"
                                         aria-invalid="<#if messagesPerField.existsError('username','password')>true</#if>"
                                     />
                                     <div style="float:right">
