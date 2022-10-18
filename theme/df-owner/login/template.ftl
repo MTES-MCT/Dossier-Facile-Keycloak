@@ -108,7 +108,7 @@
         <div id="app">
 
     <#include "./common/header.ftl">
-    <article class="page">
+    <main class="page" role="main">
       <div id="kc-content">
         <div id="kc-content-wrapper">
 
@@ -133,7 +133,7 @@
           </#if>
         </div>
       </div>
-    </article>
+    </main>
     </div>
     <#include "./common/footer.ftl">
   </div>
