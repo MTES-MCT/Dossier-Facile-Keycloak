@@ -83,7 +83,7 @@ ul.fr-icon-marianne-fill-container>li:before {
                                 />
                             <#break>
                             <#case "hybrid-pap">
-                                <img src="${url.resourcesPath}/logo/partners/pap.png"
+                                <img src="${url.resourcesPath}/logo/partners/pap.png" width="269"
                                      aria-label="PAP.fr"
                                 />
                             <#break>

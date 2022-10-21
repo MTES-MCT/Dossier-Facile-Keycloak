@@ -108,7 +108,7 @@
 
                     <div id="kc-form-wrapper">
                         <#if realm.password>
-                            <form id="kc-form-login" onsubmit="login.disabled = true; return true;" action="${url.loginAction}" method="post">
+                            <form id="kc-form-login" onsubmit="disableUsername(false);login.disabled = true; return true;" action="${url.loginAction}" method="post">
                                 <div class="fr-mt-3w ${properties.kcFormGroupClass!}">
                                     <label for="username" class="fr-label ${properties.kcLabelClass!}">${ msg("login.email") }</label>
 
@@ -186,4 +186,31 @@
         <#if realm.password && realm.registrationAllowed && !registrationDisabled??>
         </#if>
     </#if>
+    <script>
+
+        document.addEventListener("DOMContentLoaded", (event) => {
+            let login_edit_disabled = getUrlParameter('login_edit_disabled');
+            if (login_edit_disabled) {
+               disableUsername(true);
+            }
+        });
+
+        function disableUsername(value) {
+            document.getElementById('username').disabled = value;
+        }
+
+        function getUrlParameter(sParam)
+        {
+            var sPageURL = window.location.search.substring(1);
+            var sURLVariables = sPageURL.split('&');
+            for (var i = 0; i < sURLVariables.length; i++)
+            {
+                var sParameterName = sURLVariables[i].split('=');
+                if (sParameterName[0] == sParam)
+                {
+                    return sParameterName[1];
+                }
+            }
+        }
+    </script>
 </@layout.registrationLayout>
