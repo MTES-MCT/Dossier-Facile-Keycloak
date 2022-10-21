@@ -82,7 +82,11 @@ ul.fr-icon-marianne-fill-container>li:before {
                                      aria-label="Toteim"
                                 />
                             <#break>
-
+                            <#case "hybrid-pap">
+                                <img src="${url.resourcesPath}/logo/partners/pap.png"
+                                     aria-label="PAP.fr"
+                                />
+                            <#break>
                             <#default>
                                 <div class="">
                                     ${client.name}
