@@ -1,7 +1,7 @@
 <div class="fr-skiplinks">
     <nav class="fr-container" role="navigation" aria-label="Accès rapide">
         <ul class="fr-skiplinks__list">
-            <#if social.providers?size gt 0>
+            <#if social?? && social.providers?size gt 0>
                 <li>
                     <a class="fr-link" href="#social-oidc">Connexion avec FranceConnect</a>
                 </li>
