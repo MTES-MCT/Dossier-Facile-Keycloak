@@ -1491,6 +1491,13 @@ module.controller('ClientDetailCtrl', function($scope, realm, client, flows, $ro
             }
         }
 
+        if ($scope.client.attributes["use.keycloak.registration"]) {
+            if ($scope.client.attributes["use.keycloak.registration"] == "true") {
+                $scope.useKeycloakRegistration = true;
+            } else {
+                $scope.useKeycloakRegistration = false;
+            }
+        }
         if ($scope.client.attributes["display.on.consent.screen"]) {
             if ($scope.client.attributes["display.on.consent.screen"] == "true") {
                 $scope.displayOnConsentScreen = true;
@@ -2071,6 +2078,12 @@ module.controller('ClientDetailCtrl', function($scope, realm, client, flows, $ro
             $scope.clientEdit.attributes["hide.consent.on.login.screen"] = "true";
         } else {
             $scope.clientEdit.attributes["hide.consent.on.login.screen"] = "false";
+        }
+
+        if ($scope.useKeycloakRegistration == true) {
+            $scope.clientEdit.attributes["use.keycloak.registration"] = "true";
+        } else {
+            $scope.clientEdit.attributes["use.keycloak.registration"] = "false";
         }
 
         if ($scope.displayOnConsentScreen == true) {
@@ -3384,6 +3397,14 @@ module.controller('ClientScopeDetailCtrl', function($scope, realm, clientScope, 
             }
         }
 
+        if ($scope.clientScope.attributes["use.keycloak.registration"]) {
+            if ($scope.clientScope.attributes["use.keycloak.registration"] == "true") {
+                $scope.useKeycloakRegistration = true;
+            } else {
+                $scope.useKeycloakRegistration = false;
+            }
+        }
+
         if ($scope.clientScope.attributes["display.on.consent.screen"]) {
             if ($scope.clientScope.attributes["display.on.consent.screen"] == "true") {
                 $scope.displayOnConsentScreen = true;
@@ -3464,6 +3485,12 @@ module.controller('ClientScopeDetailCtrl', function($scope, realm, clientScope, 
             $scope.clientScope.attributes["hide.consent.on.login.screen"] = "true";
         } else {
             $scope.clientScope.attributes["hide.consent.on.login.screen"] = "false";
+        }
+
+        if ($scope.useKeycloakRegistration == true) {
+            $scope.clientScope.attributes["use.keycloak.registration"] = "true";
+        } else {
+            $scope.clientScope.attributes["use.keycloak.registration"] = "false";
         }
 
         if ($scope.displayOnConsentScreen == true) {
