@@ -144,7 +144,7 @@
                                 autocomplete="new-password"
                                 aria-invalid="<#if messagesPerField.existsError('password','password-confirm')>true</#if>"
                             />
-
+                            <span id="password-strength-bar" class="password-bar password-empty"></span>
                             <#if messagesPerField.existsError('password')>
                                 <span id="input-error-password" class="fr-error-text ${properties.kcInputErrorMessageClass!}" aria-live="polite">
                                     ${kcSanitize(messagesPerField.get('password'))?no_esc}
@@ -202,7 +202,26 @@
             </form>
         </div>
     </#if>
-
+    <style>
+        .password-bar {
+            position: relative;
+            display: block;
+            height: 3px;
+            margin: 10px auto 20px;
+        }
+        .password-empty {
+            background-color: grey;
+        }
+        .password-weak {
+            background-color: red;
+        }
+        .password-medium {
+            background-color: orange;
+        }
+        .password-strong {
+            background-color: green;
+        }
+    </style>
     <script>
 
         function handleSubmit() {
@@ -223,6 +242,29 @@
             return false;
         }
 
+        let password = document.getElementById('password')
+        let passwordStrengthBar = document.getElementById('password-strength-bar')
+
+        let strongPassword = new RegExp('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})')
+        let mediumPassword = new RegExp('((?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{6,}))|((?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9])(?=.{8,}))')
+
+        function checkStrength(str){
+            let classes = 'password-bar';
+            if(str.length === 0) {
+                classes += ' password-empty'
+            } else if(strongPassword.test(str)) {
+                classes += ' password-strong';
+            } else if(mediumPassword.test(str)){
+                classes += ' password-medium';
+            } else {
+                classes += ' password-weak';
+            }
+            passwordStrengthBar.className = classes;
+        }
+
+        password.addEventListener("input", () => {
+            checkStrength(password.value);
+        });
 
     </script>
 
