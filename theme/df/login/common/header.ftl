@@ -27,22 +27,6 @@
  .fr-header .fr-links-group li .fr-btn {
 	 margin-right: 0;
 }
- @media all and (max-width: 768px) {
-	 .fr-header .fr-links-group li {
-		 border-bottom: 1px;
-		 border-bottom-style: solid;
-		 border-bottom-color: var(--border-default-grey);
-	}
-}
- @media all and (min-width: 768px) {
-	 .fr-header .fr-links-group > li:last-child, .fr-header .fr-links-group li:nth-last-child(2) {
-		 border-left: 1px;
-		 border-left-style: solid;
-	}
-}
- .fr-header .fr-links-group > li:first-child {
-	 border-left-style: none !important;
-}
 .fr-header__menu-links-hack li {
     margin : 0.5rem;
 }
