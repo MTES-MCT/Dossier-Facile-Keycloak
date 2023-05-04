@@ -1,3 +1,4 @@
+<#import "template.ftl" as layout>
 <div class="fr-skiplinks">
     <nav class="fr-container" role="navigation" aria-label="Accès rapide">
         <ul class="fr-skiplinks__list">
@@ -14,7 +15,6 @@
     </nav>
 </div>
 
-<#import "template.ftl" as layout>
 <@layout.registrationLayout displayMessage=!messagesPerField.existsError('username','password') displayInfo=realm.password && realm.registrationAllowed && !registrationDisabled??; section>
     <#if section = "header">
     <#elseif section = "form">
