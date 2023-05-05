@@ -1,31 +1,18 @@
 <style>
-.badge {
-	 position: absolute;
-	 top: -2px;
-	 right: 0px;
-	 padding: 5px 10px;
-	 border-radius: 50%;
-	 background: red;
-	 color: white;
-	 z-index: 1;
-}
- .lang {
-	 box-shadow: none;
-}
  .fr-nav__item {
 	 position: relative;
 }
- .fr-nav__item .fr-nav__link[aria-current] .fr-tag {
+ .fr-nav__item .fr-nav__link[aria-current] {
 	 color: var(--text-action-high-blue-france) !important;
 }
  @media all and (min-width: 768px) {
-	 .fr-nav__item .tag-container {
+	 .fr-nav__item {
 		 padding-top: 0.75rem;
 		 padding-bottom: 0.4rem;
 	}
 }
  @media all and (max-width: 768px) {
-	 .fr-nav__item .tag-container .fr-tag {
+	 .fr-nav__item {
 		 min-height: inherit;
 		 padding: 0;
 		 background-color: transparent;
@@ -41,9 +28,6 @@
 		 margin-left: auto;
 	}
 }
- .warn {
-	 background-color: #fdf2f3;
-}
  .warn a {
 	 color: var(--error);
 }
@@ -55,8 +39,12 @@
 		 display: none;
 	}
 }
- fr-breadcrumb {
-	 margin: 0;
+.material-icons.contact {
+  font-size: 18px;
+}
+.contact-link {
+  display: flex;
+  align-items: center;
 }
 </style>
   <ul class="fr-nav__list">
@@ -84,20 +72,28 @@
     <li class="fr-nav__item">
       <a
         href="https://www.dossierfacile.fr/contact"
-        class="fr-nav__link tag-container"
+        class="fr-nav__link contact-link"
       >
-        <div class="fr-tag">
-          <span class="contact material-icons" aria-hidden="true">mail_outline</span>
-          ${msg('menu.contact-us') }
-        </div>
+        <span class="contact material-icons" aria-hidden="true">mail_outline</span>
+        ${msg('menu.contact-us') }
       </a>
     </li>
-    <li class="fr-nav__item">
-      <button
-        class="fr-nav__link fr-btn fr-ml-3 fr-btn--secondary unbox fr-btn--sm lang blue"
-        onClick="changeLocale();"
-      >
-        <span id="language_switch">English version</span>
+    <li class="fr-translate fr-nav__item">
+      <button class="fr-translate__btn fr-nav__link fr-mb-0" id="language_switch" aria-controls="select-language" aria-expanded="false" title="Sélectionner une langue">
       </button>
+      <div class="fr-collapse fr-translate__menu fr-menu" id="select-language">
+        <ul class="fr-menu__list">
+          <li>
+            <a class="fr-translate__language fr-nav__link"
+               id="language-fr" hreflang="fr" lang="fr"
+               href="#" onClick="changeLocale();">FR - Français</a>
+          </li>
+          <li>
+            <a class="fr-translate__language fr-nav__link"
+               id="language-en" hreflang="en" lang="en"
+               href="#" onClick="changeLocale();">EN - English</a>
+          </li>
+        </ul>
+      </div>
     </li>
   </ul>
