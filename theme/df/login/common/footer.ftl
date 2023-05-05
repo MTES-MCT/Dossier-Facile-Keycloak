@@ -1,51 +1,9 @@
 <#assign VUE_APP_DOCS_URL="https://docs.dossierfacile.fr">
 
  <style>
-ul.fr-follow {
-	 background-color: transparent;
-	 display: inline-flex;
-	 flex-direction: row;
-	 justify-content: center;
-	 list-style: none;
-	 margin: 0;
-	 padding: 0;
-	 height: auto;
-	 width: auto;
-}
- ul.fr-follow .fr-btn {
-	 background-color: white;
-	 color: grey;
-	 max-width: 1.5rem;
-	 vertical-align: middle;
-	 visibility: hidden;
-}
- ul.fr-follow .fr-btn:before {
-	 visibility: visible;
-}
- ul.fr-follow li {
-	 padding: 0 0.25rem 0 0.25rem;
-}
- ul.fr-follow .fr-btn {
-	 --icon-size: 1rem;
-	 padding-left: 0.15rem;
-}
  .fr-footer__brand-link {
 	 background-image: none;
 }
- .fr-follow a.fr-btn--tiktok:before {
-	 content: "";
-	 mask-image: url(${url.resourcesPath}/dsfr/dist/dsfr/icons/logo/fr--tiktok-fill.svg);
-	 -webkit-mask-image: url(${url.resourcesPath}/dsfr/dist/dsfr/icons/logo/fr--tiktok-fill.svg);
-	 --icon-size: 1.5rem;
-	 background-color: currentColor;
-	 display: inline-block;
-	 flex: 0 0 auto;
-	 height: var(--icon-size);
-	 mask-size: 100% 100%;
-	 vertical-align: middle;
-	 width: var(--icon-size);
-}
-
  </style>
   <footer class="fr-footer" role="contentinfo" id="footer" tabindex="-1">
     <div class="fr-container">
@@ -178,57 +136,6 @@ ul.fr-follow {
               ${ msg('footer.sources') }
             </a>
           </li>
-
-          <li class="fr-footer__bottom-item">
-            <ul class="fr-follow">
-              <li>
-                <a
-                  class="fr-btn--twitter fr-btn"
-                  title="twitter - ouvre une nouvelle fenêtre"
-                  href="https://twitter.com/dossierfacile/"
-                  target="_blank"
-                  >twitter</a
-                >
-              </li>
-              <li>
-                <a
-                  class="fr-btn--facebook fr-btn"
-                  title="facebook - ouvre une nouvelle fenêtre"
-                  href="https://www.facebook.com/DossierFacile.fr/"
-                  target="_blank"
-                  >instagram</a
-                >
-              </li>
-              <li>
-                <a
-                  class="fr-btn--linkedin fr-btn"
-                  lang="en"
-                  title="linkedin - ouvre une nouvelle fenêtre"
-                  href="https://www.linkedin.com/company/startup-d-etat-locatio/"
-                  target="_blank"
-                  >linkedin</a
-                >
-              </li>
-              <li>
-                <a
-                  class="fr-btn--instagram fr-btn"
-                  title="instagram - ouvre une nouvelle fenêtre"
-                  href="https://www.instagram.com/dossierfacile/"
-                  target="_blank"
-                  >instagram</a
-                >
-              </li>
-              <li>
-                <a
-                  class="fr-btn--tiktok fr-btn"
-                  title="tiktok - ouvre une nouvelle fenêtre"
-                  href="https://www.tiktok.com/@dossierfacile/"
-                  target="_blank"
-                  >tiktok</a
-                >
-              </li>
-            </ul>
-          </li>
         </ul>
         <div class="fr-footer__bottom-copy">
           <p>
@@ -239,6 +146,70 @@ ul.fr-follow {
               >licence etalab-2.0</a
             >
           </p>
+        </div>
+      </div>
+    </div>
+    <div class="fr-follow">
+      <div class="fr-container">
+        <div class="fr-grid-row">
+          <div class="fr-col-12">
+            <div class="fr-follow__social">
+              <h2 class="fr-h5">Suivez-nous sur les réseaux sociaux</h2>
+              <ul class="fr-btns-group">
+                <li>
+                  <a
+                          class="fr-btn--twitter fr-btn"
+                          title="Suivre Dossier facile sur twitter - Ouvre une nouvelle fenêtre"
+                          href="https://twitter.com/dossierfacile/"
+                          target="_blank"
+                  >
+                    Suivre Dossier facile sur twitter
+                  </a>
+                </li>
+                <li>
+                  <a
+                          class="fr-btn--facebook fr-btn"
+                          title="Suivre Dossier facile sur facebook - Ouvre une nouvelle fenêtre"
+                          href="https://www.facebook.com/DossierFacile.fr/"
+                          target="_blank"
+                  >
+                    Suivre Dossier facile sur facebook
+                  </a>
+                </li>
+                <li>
+                  <a
+                          class="fr-btn--linkedin fr-btn"
+                          lang="en"
+                          title="Suivre Dossier facile sur linkedin - Ouvre une nouvelle fenêtre"
+                          href="https://www.linkedin.com/company/startup-d-etat-locatio/"
+                          target="_blank"
+                  >
+                    Suivre Dossier facile sur linkedin
+                  </a>
+                </li>
+                <li>
+                  <a
+                          class="fr-btn--instagram fr-btn"
+                          title="Suivre Dossier facile sur instagram - Ouvre une nouvelle fenêtre"
+                          href="https://www.instagram.com/dossierfacile/"
+                          target="_blank"
+                  >
+                    Suivre Dossier facile sur instagram
+                  </a>
+                </li>
+                <li>
+                  <a
+                          class="fr-btn--tiktok fr-btn"
+                          title="Suivre Dossier facile sur tiktok - Ouvre une nouvelle fenêtre"
+                          href="https://www.tiktok.com/@dossierfacile/"
+                          target="_blank"
+                  >
+                    Suivre Dossier facile sur tiktok
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </div>
