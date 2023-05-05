@@ -1,10 +1,6 @@
 <#assign VUE_APP_DOCS_URL="https://docs.dossierfacile.fr">
 
 <style>
-.logo {
-	 width: 290px;
-	 max-width: 290px;
-}
  .fr-btn--secondary {
 	 box-shadow: none;
 }
@@ -61,13 +57,12 @@
             <div class="fr-header__service">
               <a href="https://${properties.appMainUrl}" title="Dossier Facile - Accueil">
                 <p class="fr-header__service-title">
-                  <img
-                    class="logo"
-                    src="${url.resourcesPath}/logo/logo_dossierfacile.svg"
-                    alt="Dossier Facile"
-                  />
+                  <span style="font-weight: normal">Dossier</span>Facile
                 </p>
               </a>
+              <p class="fr-header__service-tagline">
+                Le dossier de location numérique de l'État
+              </p>
             </div>
           </div>
 
