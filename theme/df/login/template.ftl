@@ -55,8 +55,9 @@
     document.cookie = "KEYCLOAK_LOCALE=" + match[1];
 
     window.onload = function(){
-        const languageSwitchLabel = lang === 'en' ? "Version française" : "English version";
+        const languageSwitchLabel = lang === 'fr' ? "FR" : "EN";
         document.getElementById("language_switch").innerText = languageSwitchLabel;
+        document.getElementById("language-" + lang).setAttribute("aria-current", "true");
     }
 
     function changeLocale() {
@@ -67,7 +68,7 @@
             document.cookie = 'lang=en';
             document.cookie = 'KEYCLOAK_LOCALE=en'
         }
-        window.location.href = window.location.href;
+        window.location.reload();
     }
     </script>
 
