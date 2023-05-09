@@ -1,26 +1,27 @@
 <#import "template.ftl" as layout>
 
-<div class="fr-skiplinks">
-    <nav class="fr-container" role="navigation" aria-label="Accès rapide">
-        <ul class="fr-skiplinks__list">
-            <#if social??>
-                <#if social.providers?has_content>
-                    <li>
-                        <a class="fr-link" href="#social-oidc">Connexion avec FranceConnect</a>
-                    </li>
-                </#if>
-            </#if>
-            <li>
-                <a class="fr-link" href="#username">Connexion avec e-mail</a>
-            </li>
-            <li>
-                <a class="fr-link" href="#footer">Pied de page</a>
-            </li>
-        </ul>
-    </nav>
-</div>
-
 <@layout.registrationLayout displayMessage=!messagesPerField.existsError('username','password') displayInfo=realm.password && realm.registrationAllowed && !registrationDisabled??; section>
+
+    <div class="fr-skiplinks">
+        <nav class="fr-container" role="navigation" aria-label="Accès rapide">
+            <ul class="fr-skiplinks__list">
+                <#if social??>
+                    <#if social.providers?has_content>
+                        <li>
+                            <a class="fr-link" href="#social-oidc">Connexion avec FranceConnect</a>
+                        </li>
+                    </#if>
+                </#if>
+                <li>
+                    <a class="fr-link" href="#username">Connexion avec e-mail</a>
+                </li>
+                <li>
+                    <a class="fr-link" href="#footer">Pied de page</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
     <#if section = "header">
     <#elseif section = "form">
     <div class="fr-container fr-container--fluid full-width">
