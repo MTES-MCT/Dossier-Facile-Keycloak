@@ -71,14 +71,6 @@
             <div class="fr-header__tools-links">
               <ul class="fr-links-group">
                 <li>
-                  <a class="fr-btn fr-ml-3 fr-btn--secondary unbox fr-btn--sm"
-                    href="https://${properties.appTenantUrl}/login"
-                  >
-                    <i class="ri-account-circle-line" aria-hidden="true"></i>
-                    ${msg('header.signup') }
-                  </a>
-                </li>
-                <li>
                   <a class="fr-btn fr-btn--sm" href="https://${properties.appTenantUrl}">
                     <i class="ri-user-star-line" aria-hidden="true"></i>
                     ${msg('header.tenant') }
@@ -110,16 +102,6 @@
         <div class="fr-header__menu-links" style="display: none"></div>
         <div class="fr-header__menu-links-hack">
           <ul class="fr-links-group">
-
-            <li>
-              <button
-                class="fr-btn fr-ml-3 fr-btn--secondary unbox fr-btn--sm"
-                onClick="location.href = 'https://${properties.appTenantUrl}/account';"
-              >
-                <i class="ri-account-circle-line" aria-hidden="true"></i>
-                ${msg('header.signup') }
-              </button>
-            </li>
 
             <li>
               <button class="fr-btn fr-btn--secondary unbox fr-ml-3 fr-btn--sm" onClick="location.href = 'https://${properties.appTenantUrl}">
