@@ -31,20 +31,18 @@
  .warn a {
 	 color: var(--error);
 }
- span.material-icons, span.material-icons-outlined {
+ i.contact {
 	 padding-right: 0.25rem;
+	 font-size: 18px;
 }
  @media all and (max-width: 768px) {
-	 span.material-icons.contact,span.material-icons-outlined.contact {
+	 i.contact {
 		 display: none;
 	}
 }
-.material-icons.contact {
- font-size: 18px;
-}
 .contact-link {
- display: flex;
- align-items: center;
+  display: flex;
+  align-items: center;
 }
 </style>
   <ul class="fr-nav__list">
@@ -74,7 +72,7 @@
         href="https://www.dossierfacile.fr/contact"
         class="fr-nav__link contact-link"
       >
-        <span class="contact material-icons" aria-hidden="true">mail_outline</span>
+        <i class="contact ri-mail-line" aria-hidden="true"></i>
         ${msg('menu.contact-us') }
       </a>
     </li>

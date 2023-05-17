@@ -15,9 +15,10 @@
 		 display: none;
 	}
 }
- span.material-icons, span.material-icons-outlined {
+ .fr-header i {
 	 padding-right: 0.25rem;
 	 min-width: 24px;
+	 font-size: 24px;
 }
  .fr-header .fr-links-group li {
 	 margin-right: 0;
@@ -73,28 +74,24 @@
                   <a class="fr-btn fr-ml-3 fr-btn--secondary unbox fr-btn--sm"
                     href="https://${properties.appTenantUrl}/login"
                   >
-                    <span class="material-icons-outlined" aria-hidden="true">
-                      account_circle
-                    </span>
+                    <i class="ri-account-circle-line" aria-hidden="true"></i>
                     ${msg('header.signup') }
                   </a>
                 </li>
                 <li>
-                  <a class="fr-btn fr-btn--sm" href="https://${properties.appOwnerUrl}">
-                    <span class="material-icons" aria-hidden="true"
-                      >apartment</span
-                    >
-                    ${msg('header.owner') }
+                  <a class="fr-btn fr-btn--sm" href="https://${properties.appTenantUrl}">
+                    <i class="ri-user-star-line" aria-hidden="true"></i>
+                    ${msg('header.tenant') }
                   </a>
                 </li>
                 <li>
                   <a
-                    class="fr-external-link fr-btn fr-btn--sm"
+                    class="fr-btn fr-btn--sm"
                     href="https://partenaire.dossierfacile.fr"
-                    target="_blank"
                     rel="noreferrer"
                     :title="$msg('partner-link-title')"
                   >
+                    <i class="ri-home-heart-line" aria-hidden="true"></i>
                     ${msg('header.partner') }
                   </a>
                 </li>
@@ -119,31 +116,22 @@
                 class="fr-btn fr-ml-3 fr-btn--secondary unbox fr-btn--sm"
                 onClick="location.href = 'https://${properties.appTenantUrl}/account';"
               >
-                <span class="material-icons-outlined" aria-hidden="true">
-                  account_circle
-                </span>
+                <i class="ri-account-circle-line" aria-hidden="true"></i>
                 ${msg('header.signup') }
               </button>
             </li>
 
             <li>
-              <button class="fr-btn fr-btn--secondary unbox fr-ml-3 fr-btn--sm" onClick="location.href = 'https://${properties.appOwnerUrl}">
-                <span class="material-icons" aria-hidden="true">apartment</span>
-                ${msg('header.owner') }
+              <button class="fr-btn fr-btn--secondary unbox fr-ml-3 fr-btn--sm" onClick="location.href = 'https://${properties.appTenantUrl}">
+                <i class="ri-user-star-line" aria-hidden="true"></i>
+                ${msg('header.tenant') }
               </button>
             </li>
             <li>
-              <button class="fr-btn fr-btn--secondary unbox fr-btn--sm">
-                <a
-                  class="fr-external-link"
-                  href="https://partenaire.dossierfacile.fr"
-                  target="_blank"
-                  rel="noreferrer"
-                  :title="$msg('partner-link-title')"
-                >
-                  <span class="material-icons" aria-hidden="true"> </span>
+              <button class="fr-btn fr-btn--secondary unbox fr-btn--sm"
+               onClick="location.href = 'https://partenaire.dossierfacile.fr">
+                  <i class="ri-home-heart-line" aria-hidden="true"></i>
                   ${msg('header.partner') }
-                </a>
               </button>
             </li>
           </ul>
