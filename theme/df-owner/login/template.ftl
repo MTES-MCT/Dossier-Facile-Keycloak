@@ -12,41 +12,17 @@
     <link rel="stylesheet" href="${url.resourcesPath}/css/global.css?t=20230504">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css">
     <script>
-      launchAnalytics = function() {
-        var head = document.getElementsByTagName('head')[0];
-        var js = document.createElement("script");
-        js.type = "text/javascript";
-        js.id="gtag"
-        js.src = "https://www.googletagmanager.com/gtag/js?id=UA-50823626-2"
-        head.appendChild(js);
-
-        var script = document.querySelector('#gtag');
-        script.addEventListener('load', function() {
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', {
-            id: "UA-50823626-2",
-            params: {
-              send_page_view: true
-            },
-            linker: {
-              domains: [
-                "dossierfacile.fr",
-                "www.dossierfacile.fr",
-                "locataire.dossierfacile.fr",
-                "proprietaire.dossierfacile.fr",
-                "sso.dossierfacile.fr"
-              ]
-            }
-          });
-        });
-      }
-      window.addEventListener('load', function () {
-        if (document.cookie.indexOf("accept-cookie=true") >= 0) {
-          launchAnalytics();
-        }
-})
+      var _paq = window._paq = window._paq || [];
+      /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+      (function() {
+        var u="https://stats.beta.gouv.fr/";
+        _paq.push(['setTrackerUrl', u+'matomo.php']);
+        _paq.push(['setSiteId', '13']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+      })();
     </script>
     <script>
     // set page language according "lang" cookie
