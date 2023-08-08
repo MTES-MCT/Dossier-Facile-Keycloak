@@ -1,16 +1,16 @@
 <#import "template.ftl" as layout>
 <style>
-ul.fr-icon-marianne-fill-container>li{
+ul.df-icon-marianne-fill-container>li{
   display:inline-flex;
   width: 100%;
   /*padding-top: 0.25rem !important;*/
 }
-ul.fr-icon-marianne-fill-container>li span{
+ul.df-icon-marianne-fill-container>li span{
   line-height: initial;
   padding-top: 0.5rem;
 }
 
-ul.fr-icon-marianne-fill-container>li:before {
+ul.df-icon-marianne-fill-container>li:before {
   display: inline-block;
   background-image: url(${url.resourcesPath}/img/icon-marianne.svg);
   background-size: var(--icon-size);
@@ -106,7 +106,7 @@ ul.fr-icon-marianne-fill-container>li:before {
 
                         <h3>${kcSanitize(msg("oauthGrantRequest", client.name))?no_esc}</h3>
                         ${msg("oauthGrantRequestText", client.name)}
-                        <ul class="fr-icon-marianne-fill-container fr-mt-1w fr-mb-2w">
+                        <ul class="df-icon-marianne-fill-container fr-mt-1w fr-mb-2w">
                             <#if oauth.clientScopesRequested??>
                                 <#list oauth.clientScopesRequested as clientScope>
                                     <li>
