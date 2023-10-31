@@ -97,22 +97,37 @@
 
                         <div class="separator"> Ou </div>
                     </#if>
-
-
                   <#if !messagesPerField.existsError('username','password') && message?has_content && (message.type != 'warning' || !isAppInitiatedAction??)>
-                      <div class="fr-mt-2w alert-${message.type} ${properties.kcAlertClass!} pf-m-<#if message.type = 'error'>danger<#else>${message.type}</#if>">
-                          <div class="pf-c-alert__icon">
-                              <#if message.type = 'success'><span class="${properties.kcFeedbackSuccessIcon!}"></span></#if>
-                              <#if message.type = 'warning'><span class="${properties.kcFeedbackWarningIcon!}"></span></#if>
-                              <#if message.type = 'error'><span class="${properties.kcFeedbackErrorIcon!}"></span></#if>
-                              <#if message.type = 'info'><span class="${properties.kcFeedbackInfoIcon!}"></span></#if>
-                          </div>
-                            <#if message.summary != 'Identifiez vous afin de lier votre compte avec oidc'>
-                              <span class="${properties.kcAlertTitleClass!}">${kcSanitize(message.summary)?no_esc}</span>
-                            <#else>
-                              <span class="small-text">Identifiez vous afin de lier votre compte avec FranceConnect</span>
-                            </#if>
-                      </div>
+                    <div data-fr-opened="true" aria-controls="fr-modal-1" data-fr-js-button-actionee="true" data-fr-js-modal-button="true"></div>
+
+                    <dialog aria-labelledby="fr-modal-title-modal-1" role="dialog" id="fr-modal-1" class="fr-modal fr-modal--opened" data-fr-js-modal="true" aria-modal="true" open="true">
+                        <div class="fr-container fr-container--fluid fr-container-md">
+                            <div class="fr-grid-row fr-grid-row--center">
+                               <div class="fr-col-12 fr-col-md-8 fr-col-lg-6">
+                                  <div class="fr-modal__body">
+                                    <div class="fr-modal__header">
+                                        <button class="fr-btn--close fr-btn" title="Fermer la fenêtre" aria-controls="fr-modal-1" >Fermer</button>
+                                    </div>
+                                    <div class="fr-modal__content">
+                                          <div class="fr-mt-2w alert-${message.type} ${properties.kcAlertClass!} pf-m-<#if message.type = 'error'>danger<#else>${message.type}</#if>">
+                                              <div class="pf-c-alert__icon">
+                                                  <#if message.type = 'success'><span class="${properties.kcFeedbackSuccessIcon!}"></span></#if>
+                                                  <#if message.type = 'warning'><span class="${properties.kcFeedbackWarningIcon!}"></span></#if>
+                                                  <#if message.type = 'error'><span class="${properties.kcFeedbackErrorIcon!}"></span></#if>
+                                                  <#if message.type = 'info'><span class="${properties.kcFeedbackInfoIcon!}"></span></#if>
+                                              </div>
+                                                <#if message.summary != 'Identifiez vous afin de lier votre compte avec oidc'>
+                                                  <span class="${properties.kcAlertTitleClass!}">${kcSanitize(message.summary)?no_esc}</span>
+                                                <#else>
+                                                  <span class="small-text">Identifiez vous afin de lier votre compte avec FranceConnect</span>
+                                                </#if>
+                                          </div>
+                                    </div>
+                                  </div>
+                               </div>
+                            </div>
+                        </div>
+                    </dialog>
                   </#if>
 
                     <div id="kc-form-wrapper">
