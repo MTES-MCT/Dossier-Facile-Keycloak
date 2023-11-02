@@ -158,8 +158,12 @@
                                         aria-invalid="<#if messagesPerField.existsError('username','password')>true</#if>"
                                     />
                                     <div style="float:right">
-                                    <a href="https://${properties.appTenantUrl}/forgotten-password" class="blue-text">Mot de passe oublié</a>
-                                                        </div>
+                                    <#if realm.resetPasswordAllowed>
+                                        <span><a href="${url.loginResetCredentialsUrl}">${msg("doForgotPassword")}</a></span>
+                                    <#else>
+                                        <a href="https://${properties.appTenantUrl}/forgotten-password" class="blue-text">Mot de passe oublié</a>
+                                    </#if>
+                                    </div>
                                 </div>
 
                                 <div class="fr-mt-5w ${properties.kcFormGroupClass!} ${properties.kcFormSettingClass!}">
@@ -176,11 +180,6 @@
                                                 </label>
                                             </div>
                                         </#if>
-                                        </div>
-                                        <div class="${properties.kcFormOptionsWrapperClass!}">
-                                            <#if realm.resetPasswordAllowed>
-                                                <span><a href="${url.loginResetCredentialsUrl}">${msg("doForgotPassword")}</a></span>
-                                            </#if>
                                         </div>
 
                                 </div>
