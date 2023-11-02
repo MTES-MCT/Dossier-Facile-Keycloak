@@ -9,7 +9,7 @@
     <meta name="robots" content="noindex, nofollow">
     <link rel="stylesheet" href="${url.resourcesPath}/dsfr/dist/dsfr/dsfr.min.css?t=20220510">
     <link rel="stylesheet" href="${url.resourcesPath}/css/fc.css?t=20220610">
-    <link rel="stylesheet" href="${url.resourcesPath}/css/global.css?t=2023011801">
+    <link rel="stylesheet" href="${url.resourcesPath}/css/global.css?t=2023110201">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css">
     <script>
       var _paq = window._paq = window._paq || [];
