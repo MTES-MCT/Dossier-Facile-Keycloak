@@ -15,6 +15,13 @@
                     <p class="instruction">${message.summary}<#if requiredActions??><#list requiredActions>: <b><#items as reqActionItem>${msg("requiredAction.${reqActionItem}")}<#sep>, </#items></b></#list><#else></#if></p>
                 </div>
                 <#if skipLink??>
+                    <#if client?? && client.baseUrl?has_content>
+                        <p><a id="backToApplication" href="${client.baseUrl}">${kcSanitize(msg("backToApplication"))?no_esc}</a></p>
+                    <#else>
+                        <div class=" fr-col6 ${properties.kcFormOptionsWrapperClass!}">
+                            <span><a href="https://${properties.appMainUrl}">Revenir sur DossierFacile</a></span>
+                        </div>
+                    </#if>
                 <#else>
                     <#if pageRedirectUri?has_content>
                         <p><a href="${pageRedirectUri}">${kcSanitize(msg("backToApplication"))?no_esc}</a></p>
@@ -22,15 +29,12 @@
                         <p><a href="${actionUri}">${kcSanitize(msg("proceedWithAction"))?no_esc}</a></p>
                     <#elseif (client.baseUrl)?has_content>
                         <p><a href="${client.baseUrl}">${kcSanitize(msg("backToApplication"))?no_esc}</a></p>
+                    <#else>
+                        <div class=" fr-col6 ${properties.kcFormOptionsWrapperClass!}">
+                            <span><a href="https://${properties.appMainUrl}">Revenir sur DossierFacile</a></span>
+                        </div>
                     </#if>
-                </#if>
 
-                <#if client?? && client.baseUrl?has_content>
-                    <p><a id="backToApplication" href="${client.baseUrl}">${kcSanitize(msg("backToApplication"))?no_esc}</a></p>
-                <#else>
-                    <div class=" fr-col6 ${properties.kcFormOptionsWrapperClass!}">
-                        <span><a href="https://${properties.appMainUrl}">Revenir sur DossierFacile</a></span>
-                    </div>
                 </#if>
             </div>
         </div>
