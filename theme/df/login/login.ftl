@@ -133,20 +133,20 @@
                     <div id="kc-form-wrapper">
                         <#if realm.password>
                             <form id="kc-form-login" onsubmit="disableUsername(false);login.disabled = true; return true;" action="${url.loginAction}" method="post">
-                                <div class="fr-mt-3w ${properties.kcFormGroupClass!}">
+                                <div class="fr-mt-3w fr-input-group <#if messagesPerField.existsError('username','password')>fr-input-group--error</#if> ${properties.kcFormGroupClass!}">
                                     <label for="username" class="fr-label ${properties.kcLabelClass!}">${ msg("login.email") }</label>
 
                                     <#if usernameEditDisabled??>
-                                        <input id="username" class="fr-input ${properties.kcInputClass!}" name="username" value="${(login.username!'')}" type="text" disabled />
+                                        <input id="username" class="fr-input <#if messagesPerField.existsError('username','password')>fr-input--error</#if> ${properties.kcInputClass!}" name="username" value="${(login.username!'')}" type="text" disabled />
                                     <#else>
                                         <input id="username" class="fr-input ${properties.kcInputClass!}" name="username" value="${(login.username!'')}"  type="text" autocomplete="email"
                                             aria-invalid="<#if messagesPerField.existsError('username','password')>true</#if>"
                                         />
 
                                         <#if messagesPerField.existsError('username','password')>
-                                            <div id="input-error" class="fr-mt-1w ${properties.kcInputErrorMessageClass!}" aria-live="polite">
-                                                    ${kcSanitize(messagesPerField.getFirstError('username','password')?replace("{}", properties.appTenantUrl))?no_esc}
-                                            </div>
+                                            <p id="text-input-error-desc-error" class="fr-error-text">
+                                                ${kcSanitize(messagesPerField.getFirstError('username','password')?replace("{}", properties.appTenantUrl))?no_esc}
+                                            </p>
                                         </#if>
                                     </#if>
                                 </div>
