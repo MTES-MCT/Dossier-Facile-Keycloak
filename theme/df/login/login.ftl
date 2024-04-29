@@ -42,7 +42,7 @@
                   </p>
                   <p>
                     🤔 à connaître
-                    <strong><u>la liste des documents à fournir</u></strong> dans un
+                    <strong><a href="https://docs.dossierfacile.logement.gouv.fr/article/93-liste-des-documents-a-fournir-2-0" target="_blank">la liste des documents à fournir</a></strong> dans un
                     dossier de location pour éviter les pièges !
                   </p>
                   <p>
