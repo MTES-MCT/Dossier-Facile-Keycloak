@@ -65,6 +65,10 @@
                 <div>
                     <h1 class="fr-mt-2w fr-h2 blue-text text-center">${ msg("signup.title") }</h1>
                     <#if realm.password && social.providers??>
+                        <div class="fr-alert fr-alert--warning">
+                            <h2 class="fr-alert__title">${ msg("signup.connexion-france-connect-title") }</h2>
+                            <p>${ msg("signup.connexion-france-connect-text") } <strong>${ msg("signup.connexion-france-connect-text2") }</strong> ${ msg("signup.connexion-france-connect-text3") }</p>
+                        </div>
                         <div class="text-center">
                             <div class="fr-mt-2w fr-mb-2w small-text">
                             ${ msg("login.france-connect") }
