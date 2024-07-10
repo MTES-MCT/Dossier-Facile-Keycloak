@@ -65,9 +65,9 @@
                         </a>
                     </#if>
                 </div>
-                <div id="kc-form" class="margin-auto max-400">
+                <div id="kc-form" class="margin-auto max-500">
                 <div>
-                    <h1 class="fr-mt-2w fr-h2 blue-text text-center">${ msg("login.connection") }</h1>
+                    <h1 class="fr-mt-2w fr-h2 text-center">${ msg("login.connection") }</h1>
                     <#if realm.password && social.providers??>
                         <div class="text-center">
                             <div class="fr-mt-2w fr-mb-2w small-text">
