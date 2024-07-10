@@ -71,15 +71,6 @@
           <li class="fr-footer__bottom-item">
             <a
               class="fr-footer__bottom-link"
-              target="_blank"
-              rel="noreferrer"
-            href="https://beta.gouv.fr/">
-              Les startups d'Etat
-            </a>
-          </li>
-          <li class="fr-footer__bottom-item">
-            <a
-              class="fr-footer__bottom-link"
               href="https://${properties.appMainUrl}/plan-du-site">
               ${ msg('footer.sitemap') }
             </a>
@@ -98,6 +89,22 @@
               href="https://${properties.appMainUrl}/mentions-legales"
             >
               ${ msg('footer.legals') }
+            </a>
+          </li>
+          <li class="fr-footer__bottom-item">
+            <a
+              class="fr-footer__bottom-link"
+              href="https://${properties.appMainUrl}/politique-de-confidentialite"
+            >
+              ${ msg('footer.privacy-policy') }
+            </a>
+          </li>
+          <li class="fr-footer__bottom-item">
+            <a
+              class="fr-footer__bottom-link"
+              href="https://${properties.appMainUrl}/cgu"
+            >
+              ${ msg('footer.cgu') }
             </a>
           </li>
           <li class="fr-footer__bottom-item">

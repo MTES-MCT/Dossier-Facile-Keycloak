@@ -191,7 +191,7 @@
                         <div id="cguGroup" class="bg-purple fr-checkbox-group">
                             <input type="checkbox" id="acceptCgu" value="false">
                                 <label for="acceptCgu">
-                                    <div>En cochant cette case et en cliquant sur "Je crée mon compte", j’accepte expressément les <a class="cgu" target="_blank" href="https://www.dossierfacile.fr/mentions-legales#cgu">Conditions générales d’utilisation</a> de DossierFacile et je comprends que mes données personnelles seront utilisées conformément à la <a target="_blank" class="cgu" href="https://www.dossierfacile.fr/mentions-legales#politique-de-confidentialite">Politique de confidentialité</a> de DossierFacile</div>
+                                    <div>En cochant cette case et en cliquant sur "Je crée mon compte", j’accepte expressément les <a class="cgu" target="_blank" href="https://www.dossierfacile.logement.gouv.fr/cgu">Conditions générales d’utilisation</a> de DossierFacile et je comprends que mes données personnelles seront utilisées conformément à la <a target="_blank" class="cgu" href="https://www.dossierfacile.logement.gouv.fr/politique-de-confidentialite">Politique de confidentialité</a> de DossierFacile</div>
                                 </label>
                         </div>
                     </span>
