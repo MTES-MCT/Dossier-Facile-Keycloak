@@ -63,7 +63,7 @@
                 </div>
                 <div id="kc-form" class="margin-auto max-540">
                 <div>
-                    <h1 class="fr-mt-2w fr-h2 blue-text text-center">${ msg("signup.title") }</h1>
+                    <h1 class="fr-mt-2w fr-h2 text-center">${ msg("signup.title") }</h1>
                     <#if realm.password && social.providers??>
                         <div class="fr-alert fr-alert--info">
                             <h2 class="fr-alert__title">${ msg("signup.connexion-france-connect-title") }</h2>
