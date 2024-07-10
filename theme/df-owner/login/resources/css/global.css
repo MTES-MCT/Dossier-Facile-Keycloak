@@ -45,6 +45,10 @@ body {
   max-width: 400px;
 }
 
+.max-500 {
+  max-width: 400px;
+}
+
 .fr-btn {
   width: 100%;
   display: inherit;
