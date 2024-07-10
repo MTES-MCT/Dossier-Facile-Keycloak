@@ -61,7 +61,7 @@
                         </a>
                     </#if>
                 </div>
-                <div id="kc-form" class="margin-auto max-540">
+                <div id="kc-form" class="margin-auto max-500">
                 <div>
                     <h1 class="fr-mt-2w fr-h2 text-center">${ msg("signup.title") }</h1>
                     <#if realm.password && social.providers??>
