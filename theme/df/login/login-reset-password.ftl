@@ -6,14 +6,13 @@
     <#elseif section = "form">
 <div class="page">
     <div class="fr-container content-container">
-            <div class="bg-white card-container fr-p-5w">
-                <div class="fr-h4 text-align-left"> ${msg("resetPassword.title")}</div>
-                <div >${msg("resetPassword.info")}</div>
-                <form id="kc-reset-password-form" class="${properties.kcFormClass!}" action="${url.loginAction}" method="post">
+        <div class="bg-white card-container fr-p-5w">
+            <div class="fr-h4 text-align-left"> ${msg("resetPassword.title")}</div>
+            <div >${msg("resetPassword.info")}</div>
+            <form id="kc-reset-password-form" class="${properties.kcFormClass!}" action="${url.loginAction}" method="post">
                 <div class="${properties.kcFormGroupClass!}">
-                    <div class="fr-mt-3w">
-                        <div class="fr-input-group ${properties.kcLabelWrapperClass!}">
-                            <label for="email" class="fr-label fr-mb-1w">Email</label>
+                    <div class="fr-input-group fr-mt-3w ${properties.kcLabelWrapperClass!}">
+                        <label for="username" class="fr-label fr-mb-1w">${msg("resetPassword.email")}</label>
                         <div class="${properties.kcInputWrapperClass!}">
                             <#if auth?has_content && auth.showUsername()>
                                 <input type="text" required="required" placeholder="Ex : exemple@exemple.fr" id="username" name="username" class="form-control fr-input validate-required ${properties.kcInputClass!}" autofocus value="${auth.attemptedUsername}" aria-invalid="<#if messagesPerField.existsError('username')>true</#if>"/>
@@ -23,14 +22,14 @@
 
                             <#if messagesPerField.existsError('username')>
                                 <span id="input-error-username" class="${properties.kcInputErrorMessageClass!}" aria-live="polite">
-                                            ${kcSanitize(messagesPerField.get('username'))?no_esc}
+                                    ${kcSanitize(messagesPerField.get('username'))?no_esc}
                                 </span>
                             </#if>
                         </div>
                         <div class="fr-notice fr-notice--info fr-mt-3w">
                             <div class="fr-container">
                                 <div class="fr-notice__body">
-                                    <p class="fr-text--xs">${msg("resetPassword.subinfo")}</p>
+                                    <p class="fr-text--xs">${kcSanitize(msg("resetPassword.subinfo", properties.registerUrl))?no_esc}</p>
                                 </div>
                             </div>
                         </div>
@@ -38,13 +37,14 @@
                             <div id="kc-form-buttons" class=" fr-col6 ${properties.kcFormButtonsClass!}">
                                 <input class="fr-btn ${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonBlockClass!} ${properties.kcButtonLargeClass!}" type="submit" value="${msg("resetPassword.submit")}"/>
                             </div>
-                            <div class=" fr-col6 ${properties.kcFormOptionsWrapperClass!}">
+                            <div class="fr-mt-1w fr-col6 ${properties.kcFormOptionsWrapperClass!}">
                                 <span><a href="${url.loginUrl}">${kcSanitize(msg("resetPassword.backToLogin"))?no_esc}</a></span>
                             </div>
                         </div>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </form>
+        </div>
     </div>
 </div>
     <#elseif section = "info" >
