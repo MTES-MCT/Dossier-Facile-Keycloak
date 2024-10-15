@@ -106,7 +106,7 @@
                                <div class="fr-col-12 fr-col-md-8 fr-col-lg-6">
                                   <div class="fr-modal__body">
                                     <div class="fr-modal__header">
-                                        <button class="fr-btn--close fr-btn" title="Fermer la fenêtre" aria-controls="fr-modal-1" >Fermer</button>
+                                        <button class="fr-btn--close fr-btn" title="Fermer la fenêtre" aria-controls="fr-modal-1" style="width:fit-content">Fermer</button>
                                     </div>
                                     <div class="fr-modal__content">
                                           <div class="fr-mt-2w alert-${message.type} ${properties.kcAlertClass!} pf-m-<#if message.type = 'error'>danger<#else>${message.type}</#if>">
