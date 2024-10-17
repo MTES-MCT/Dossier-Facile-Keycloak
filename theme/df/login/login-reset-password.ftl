@@ -26,12 +26,8 @@
                                 </span>
                             </#if>
                         </div>
-                        <div class="fr-notice fr-notice--info fr-mt-3w">
-                            <div class="fr-container">
-                                <div class="fr-notice__body">
-                                    <p class="fr-text--xs">${kcSanitize(msg("resetPassword.subinfo", properties.registerUrl))?no_esc}</p>
-                                </div>
-                            </div>
+                        <div class="fr-alert fr-alert--info fr-mt-3w">
+                            <p>${kcSanitize(msg("resetPassword.subinfo", properties.registerUrl))?no_esc}</p>
                         </div>
                         <div class="fr-grid-row ${properties.kcFormGroupClass!} ${properties.kcFormSettingClass!}">
                             <div id="kc-form-buttons" class=" fr-col6 ${properties.kcFormButtonsClass!}">
