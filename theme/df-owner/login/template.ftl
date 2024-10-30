@@ -75,8 +75,7 @@
             <script src="${script}" type="text/javascript"></script>
         </#list>
     </#if>
-    <script type="text/javascript">!function(e,t,n){function a(){var e=t.getElementsByTagName("script")[0],n=t.createElement("script");n.type="text/javascript",n.async=!0,n.src="https://beacon-v2.helpscout.net",e.parentNode.insertBefore(n,e)}if(e.Beacon=n=function(t,n,a){e.Beacon.readyQueue.push({method:t,options:n,data:a})},n.readyQueue=[],"complete"===t.readyState)return a();e.attachEvent?e.attachEvent("onload",a):e.addEventListener("load",a,!1)}(window,document,window.Beacon||function(){});</script>
-    <script type="text/javascript">window.Beacon('init', '330e68d2-2a04-4659-8048-c05d242ee8f5')</script>
+    <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="86f26e9b-d8e3-47ba-9980-6b01d439b8e5";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
 </head>
 
 <body class="${properties.kcBodyClass!}">
