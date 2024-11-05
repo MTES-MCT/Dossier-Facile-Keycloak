@@ -75,7 +75,7 @@
             <script src="${script}" type="text/javascript"></script>
         </#list>
     </#if>
-    <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="86f26e9b-d8e3-47ba-9980-6b01d439b8e5";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
+    <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="${properties.crispWebsiteId}";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
 </head>
 
 <body class="${properties.kcBodyClass!}">
