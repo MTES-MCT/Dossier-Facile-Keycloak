@@ -1,7 +1,4 @@
 .idea
 .DS_Store
 
-Dockerfile
-docker-compose.yml
-keycloak-franceconnect-4.1.0.jar
-keycloak-rest-provider-1.0-SNAPSHOT.jar
+*.jar
