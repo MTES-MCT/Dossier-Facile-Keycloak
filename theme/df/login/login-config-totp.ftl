@@ -1,16 +1,17 @@
 <#import "template.ftl" as layout>
+<#import "password-commons.ftl" as passwordCommons>
 <@layout.registrationLayout displayRequiredFields=false displayMessage=!messagesPerField.existsError('totp','userLabel'); section>
 
     <#if section = "header">
         ${msg("loginTotpTitle")}
     <#elseif section = "form">
-        <ol id="kc-totp-settings">
+        <ol id="kc-totp-settings" class="pf-v5-c-list pf-v5-u-mb-md">
             <li>
                 <p>${msg("loginTotpStep1")}</p>
 
                 <ul id="kc-totp-supported-apps">
-                    <#list totp.policy.supportedApplications as app>
-                        <li>${app}</li>
+                    <#list totp.supportedApplications as app>
+                        <li>${msg(app)}</li>
                     </#list>
                 </ul>
             </li>
@@ -51,58 +52,82 @@
 
         <form action="${url.loginAction}" class="${properties.kcFormClass!}" id="kc-totp-settings-form" method="post">
             <div class="${properties.kcFormGroupClass!}">
-                <div class="${properties.kcInputWrapperClass!}">
-                    <label for="totp" class="control-label">${msg("authenticatorCode")}</label> <span class="required">*</span>
+                <div class="${properties.kcLabelClass!}">
+                    <label class="pf-v5-c-form__label" for="form-vertical-name">
+                        <span class="pf-v5-c-form__label-text">${msg("authenticatorCode")}</span>&nbsp;<span class="pf-v5-c-form__label-required" aria-hidden="true">&#42;</span>
+                    </label>
                 </div>
-                <div class="${properties.kcInputWrapperClass!}">
-                    <input type="text" id="totp" name="totp" autocomplete="off" class="${properties.kcInputClass!}"
+                <div class="${properties.kcInputClass!} <#if messagesPerField.existsError('totp')>pf-m-error</#if>">
+                    <input type="text" required id="totp" name="totp" autocomplete="off"
                            aria-invalid="<#if messagesPerField.existsError('totp')>true</#if>"
                     />
 
                     <#if messagesPerField.existsError('totp')>
-                        <span id="input-error-otp-code" class="${properties.kcInputErrorMessageClass!}" aria-live="polite">
-                            ${kcSanitize(messagesPerField.get('totp'))?no_esc}
+                        <span class="pf-v5-c-form-control__utilities">
+                            <span class="pf-v5-c-form-control__icon pf-m-status">
+                                <i class="fas fa-exclamation-circle" aria-hidden="true"></i>
+                            </span>
                         </span>
                     </#if>
-
                 </div>
+                <#if messagesPerField.existsError('totp')>
+                    <span id="input-error-otp-code" class="${properties.kcInputErrorMessageClass!}" aria-live="polite">
+                        ${kcSanitize(messagesPerField.get('totp'))?no_esc}
+                    </span>
+                </#if>
                 <input type="hidden" id="totpSecret" name="totpSecret" value="${totp.totpSecret}" />
                 <#if mode??><input type="hidden" id="mode" name="mode" value="${mode}"/></#if>
             </div>
-
             <div class="${properties.kcFormGroupClass!}">
-                <div class="${properties.kcInputWrapperClass!}">
-                    <label for="userLabel" class="control-label">${msg("loginTotpDeviceName")}</label> <#if totp.otpCredentials?size gte 1><span class="required">*</span></#if>
+                <div class="${properties.kcLabelClass!}">
+                    <label class="pf-v5-c-form__label" for="form-vertical-name">
+                        <span class="pf-v5-c-form__label-text">${msg("loginTotpDeviceName")}</span><#if totp.otpCredentials?size gte 1>&nbsp;<span class="pf-v5-c-form__label-required" aria-hidden="true">&#42;</span></#if>
+                    </label>
                 </div>
 
-                <div class="${properties.kcInputWrapperClass!}">
-                    <input type="text" class="${properties.kcInputClass!}" id="userLabel" name="userLabel" autocomplete="off"
+                <div class="${properties.kcInputClass!}">
+                    <input type="text" id="userLabel" name="userLabel" autocomplete="off"
                            aria-invalid="<#if messagesPerField.existsError('userLabel')>true</#if>"
                     />
 
                     <#if messagesPerField.existsError('userLabel')>
-                        <span id="input-error-otp-label" class="${properties.kcInputErrorMessageClass!}" aria-live="polite">
-                            ${kcSanitize(messagesPerField.get('userLabel'))?no_esc}
+                        <span class="pf-v5-c-form-control__utilities">
+                            <span class="pf-v5-c-form-control__icon pf-m-status">
+                                <i class="fas fa-exclamation-circle" aria-hidden="true"></i>
+                            </span>
                         </span>
                     </#if>
                 </div>
+                <#if messagesPerField.existsError('userLabel')>
+                    <span id="input-error-otp-label" class="${properties.kcInputErrorMessageClass!}" aria-live="polite">
+                        ${kcSanitize(messagesPerField.get('userLabel'))?no_esc}
+                    </span>
+                </#if>
             </div>
 
-            <#if isAppInitiatedAction??>
-                <input type="submit"
-                       class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonLargeClass!}"
-                       id="saveTOTPBtn" value="${msg("doSubmit")}"
-                />
-                <button type="submit"
-                        class="${properties.kcButtonClass!} ${properties.kcButtonDefaultClass!} ${properties.kcButtonLargeClass!} ${properties.kcButtonLargeClass!}"
-                        id="cancelTOTPBtn" name="cancel-aia" value="true" />${msg("doCancel")}
-                </button>
-            <#else>
-                <input type="submit"
-                       class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonBlockClass!} ${properties.kcButtonLargeClass!}"
-                       id="saveTOTPBtn" value="${msg("doSubmit")}"
-                />
-            </#if>
+            <div class="${properties.kcFormGroupClass!}">
+                <@passwordCommons.logoutOtherSessions/>
+            </div>
+
+            <div class="pf-v5-c-form__group pf-m-action">
+                <div class="pf-v5-c-form__actions">
+                    <#if isAppInitiatedAction??>
+                        <input type="submit"
+                            class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonLargeClass!}"
+                            id="saveTOTPBtn" value="${msg("doSubmit")}"
+                        />
+                        <button type="submit"
+                                class="${properties.kcButtonClass!} ${properties.kcButtonDefaultClass!} ${properties.kcButtonLargeClass!} ${properties.kcButtonLargeClass!}"
+                                id="cancelTOTPBtn" name="cancel-aia" value="true" />${msg("doCancel")}
+                        </button>
+                    <#else>
+                        <input type="submit"
+                            class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonBlockClass!} ${properties.kcButtonLargeClass!}"
+                            id="saveTOTPBtn" value="${msg("doSubmit")}"
+                        />
+                    </#if>
+                </div>
+            </div>
         </form>
     </#if>
 </@layout.registrationLayout>

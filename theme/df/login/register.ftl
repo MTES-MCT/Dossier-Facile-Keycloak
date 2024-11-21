@@ -14,6 +14,8 @@
     </nav>
 </div>
 <#import "template.ftl" as layout>
+<#import "user-profile-commons.ftl" as userProfileCommons>
+<#import "register-commons.ftl" as registerCommons>
 <@layout.registrationLayout displayMessage=!messagesPerField.existsError('email','username','password','password-confirm'); section>
     <#if section = "header">
     <#elseif section = "form">
@@ -227,7 +229,6 @@
         }
     </style>
     <script>
-
         function handleSubmit() {
 
             let element = document.getElementById('acceptCgu')
@@ -269,7 +270,6 @@
         password.addEventListener("input", () => {
             checkStrength(password.value);
         });
-
     </script>
 
 </@layout.registrationLayout>
