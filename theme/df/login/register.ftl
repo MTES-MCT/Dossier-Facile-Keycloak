@@ -53,7 +53,7 @@
             </div>
             <div class="fr-col-lg-6 fr-col-12 bg-white">
                 <div class="fr-mt-2w align-end">
-                    <#if realm.password && realm.registrationAllowed && !registrationDisabled?? && client.getAttribute('use.keycloak.registration')?has_content && client.getAttribute('use.keycloak.registration') == 'true' >
+                    <#if realm.password && realm.registrationAllowed && !registrationDisabled??>
                         <a href="${url.loginUrl}" class="fr-tag">
                             ${ msg("login.signin-link") }
                         </a>
