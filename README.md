@@ -38,5 +38,34 @@ Create new client "dossier-facile-api"
 - in capability config, activate "client authentication"
 - then go to tab "credentials" and copy the client secret
 
+## Exporting data from keycloak
+Start the keycloak container and retrieve the container id
+```
+docker ps
+```
+
+once you have it, run the following command to export the data
+```
+docker exec -u root -t -i <container-id> /bin/sh
+cd /opt/keycloak/bin
+./kc.sh export --file /configs/keycloak/dev_configuration_export.json
+```
+
+## Importing data to keycloak
+### ⚠️ This configuration is only for dev environment !!!
+Start the keycloak container and retrieve the container id
+```
+docker ps
+```
+
+once you have it, run the following command to import the data
+```
+docker exec -u root -t -i <container-id> /bin/sh
+cd /opt/keycloak/bin
+./kc.sh import --file /configs/keycloak/dev_configuration_export.json
+```
+
+Reboot the docker container and you will have the configuration.
+
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)

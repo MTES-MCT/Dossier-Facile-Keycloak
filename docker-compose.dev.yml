@@ -33,6 +33,8 @@ services:
       - KC_HTTP_RELATIVE_PATH=/auth
     ports:
       - "8085:8080"
+    volumes:
+      - ./configs/keycloak:/configs/keycloak
     depends_on:
       - postgres
     networks:
