@@ -21,7 +21,7 @@
     <#if section = "header">
     <#elseif section = "form">
     <div class="fr-container fr-container--fluid fluid-full-width">
-        <div class="fr-grid-row">
+        <div class="fr-grid-row" style="flex-wrap: wrap-reverse">
             <div class="fr-col-lg-6 fr-col-12" >
               <div class="bg-pic">
                 <div class="max-550 left-row fr-pt-3w fr-mt-7w fr-mb-7w">
