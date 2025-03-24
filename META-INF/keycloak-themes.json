@@ -6,6 +6,9 @@
     {
         "name" : "df-owner",
         "types": [ "account", "admin", "login", "email" ]
-    }
-    ]
+    },
+    {
+        "name" : "df-admin",
+        "types": [ "admin" ]
+    }]
 }
