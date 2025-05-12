@@ -20,28 +20,12 @@
 
     <#if section = "header">
     <#elseif section = "form">
-        <div class="bg-white">
-            <div class="fr-mt-2w align-end">
-
-                <#if realm.password && realm.registrationAllowed && !registrationDisabled??>
-                    <a href="${url.registrationUrl}" class="fr-tag">
-                        ${ msg("login.signup-link") }
-                    </a>
-                <#else>
-                    <a href="https://${properties.appTenantUrl}/signup" class="fr-tag">
-                        ${ msg("login.signup-link") }
-                    </a>
-                </#if>
-            </div>
-            <div id="kc-form" class="margin-auto max-500">
+        <div class="fr-py-md-5w" style="background-color: var(--background-alt-blue-france)">
+            <div id="kc-form" class="margin-auto max-500 bg-white">
                 <h1 class="fr-mt-2w fr-h2 text-center">${ msg("login.connection") }</h1>
                 <#if realm.password && social.providers??>
-                    <div class="text-center">
-                        <div class="fr-mt-2w fr-mb-2w small-text">
-                        ${ msg("login.france-connect") }
-                        </div>
-                    </div>
-                    <div id="kc-social-providers" class="fr-mt-3w fr-mb-1w text-center ${properties.kcFormSocialAccountSectionClass!}">
+                    <p class="fr-text--xl text-center fr-mb-2w">Connexion avec</p>
+                    <div id="kc-social-providers" class="fr-mb-1w text-center ${properties.kcFormSocialAccountSectionClass!}">
                         <ul class="${properties.kcFormSocialAccountListClass!} <#if social.providers?size gt 3>${properties.kcFormSocialAccountListGridClass!}</#if>">
                             <#list social.providers as p>
                                 <a id="social-${p.alias}" class="inline-block ${properties.kcFormSocialAccountListButtonClass!} <#if social.providers?size gt 3>${properties.kcFormSocialAccountGridItem!}</#if>"
@@ -60,9 +44,12 @@
                         <a href="https://app.franceconnect.gouv.fr/en-savoir-plus" id="cQuoiFCGauche" target="_blank" rel="noopener">
                             Qu'est-ce que FranceConnect?
                         </a>
+                        <p class="fr-my-2w small-text">
+                            ${ msg("login.france-connect") }
+                        </p>
                     </div>
 
-                    <div class="separator"> Ou </div>
+                    <div class="separator fr-text--md fr-text--bold" style="color: var(--text-active-grey)">OU</div>
                 </#if>
                 <#if !messagesPerField.existsError('username','password') && message?has_content && (message.type != 'warning' || !isAppInitiatedAction??)>
                     <div data-fr-opened="true" aria-controls="fr-modal-1" data-fr-js-button-actionee="true" data-fr-js-modal-button="true"></div>
@@ -102,7 +89,7 @@
                         <form id="kc-form-login" onsubmit="disableUsername(false);login.disabled = true; return true;" action="${url.loginAction}" method="post">
                             <div class="fr-mt-3w fr-input-group <#if messagesPerField.existsError('username','password')>fr-input-group--error</#if> ${properties.kcFormGroupClass!}">
                                 <label for="username" class="fr-label ${properties.kcLabelClass!}">${ msg("login.email") }</label>
-
+                                <p class="fr-text--xs fr-mb-1w" style="color: #666">Format attendu : nom@exemple.fr</p>
                                 <#if usernameEditDisabled??>
                                     <input id="username" class="fr-input <#if messagesPerField.existsError('username','password')>fr-input--error</#if> ${properties.kcInputClass!}" name="username" value="${(login.username!'')}" type="text" disabled />
                                 <#else>
@@ -119,24 +106,27 @@
                             </div>
 
                             <div class="fr-mt-2w ${properties.kcFormGroupClass!}">
-                                <label for="password" class="fr-label ${properties.kcLabelClass!}">${ msg("login.password") }</label>
-
-                                <input id="password" class="fr-input ${properties.kcInputClass!}" name="password" type="password" autocomplete="current-password"
+                                <div class="fr-mb-1v" style="display: flex">
+                                    <label for="password" class="fr-label ${properties.kcLabelClass!}">${ msg("login.password") }</label>
+                                    <div class="fr-checkbox-group fr-checkbox-group--sm fr-ml-auto">
+                                        <input id="showPassword" type="checkbox" />
+                                        <label for="showPassword">Afficher</label>
+                                    </div>
+                                </div>
+                                <input id="password" class="fr-input ${properties.kcInputClass!} fr-mb-3v" name="password" type="password" autocomplete="current-password"
                                     aria-invalid="<#if messagesPerField.existsError('username','password')>true</#if>"
                                 />
-                                <div style="float:right">
                                 <#if realm.resetPasswordAllowed>
-                                    <span><a href="${url.loginResetCredentialsUrl}">${msg("doForgotPassword")}</a></span>
+                                    <a href="${url.loginResetCredentialsUrl}">${msg("doForgotPassword")}</a>
                                 <#else>
                                     <a href="https://${properties.appTenantUrl}/forgotten-password" class="blue-text">Mot de passe oublié</a>
                                 </#if>
-                                </div>
                             </div>
 
-                            <div class="fr-mt-5w ${properties.kcFormGroupClass!} ${properties.kcFormSettingClass!}">
+                            <div class="fr-mt-3w ${properties.kcFormGroupClass!} ${properties.kcFormSettingClass!}">
                                 <div id="kc-form-options">
                                     <#if realm.rememberMe && !usernameEditDisabled??>
-                                        <div class="fr-checkbox-group">
+                                        <div class="fr-checkbox-group fr-checkbox-group--sm">
                                                 <#if login.rememberMe??>
                                                     <input id="rememberMe" name="rememberMe" type="checkbox" checked>
                                                 <#else>
@@ -151,49 +141,63 @@
                             </div>
                             <#if client.getAttribute('hide.consent.on.login.screen')?has_content && client.getAttribute('hide.consent.on.login.screen') == 'true' >
                                 <!-- freemarker should be forbidden -->
-                            <#elseif client.name != "dossierfacile" >
+                            <#--  <#elseif client.name != "dossierfacile" >
                                 <div class="checkbox">
                                     <label class="fr-label">
                                         <input required id="authorize" name="authorize" type="checkbox" checked> J'autorise DossierFacile à fournir à ${client.name} les informations contenues dans mon DossierFacile, et je reconnais avoir reçu le consentement de mes garants et colocataires éventuels pour fournir à ${client.name} les informations les concernant.
                                     </label>
-                                </div>
+                                </div>  -->
                             </#if>
 
-                            <div id="kc-form-buttons" class="${properties.kcFormGroupClass!} fr-mb-5w">
+                            <div id="kc-form-buttons" class="${properties.kcFormGroupClass!} fr-my-3w">
                                 <input type="hidden" id="id-hidden-input" name="credentialId" <#if auth.selectedCredential?has_content>value="${auth.selectedCredential}"</#if>/>
                                 <input class="fr-btn ${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonBlockClass!} ${properties.kcButtonLargeClass!}" name="login" id="kc-login" type="submit" value="Se connecter"/>
                             </div>
                         </form>
                     </#if>
                 </div>
+                <div class="separator fr-mb-3w"></div>
+                <p class="fr-mb-1w text-center">Vous n’avez pas de compte DossierFacile ?</p>
+                <a href="<#if realm.password && realm.registrationAllowed && !registrationDisabled??>${url.registrationUrl}<#else>https://${properties.appTenantUrl}/signup</#if>" class="fr-btn fr-btn--secondary text-center">
+                    ${ msg("login.signup-link") }
+                </a>
+                <div class="separator fr-my-3w"></div>
+                <p class="text-center">
+                    <a href="https://proprietaire.dossier-facile.fr/home">Me connecter en tant que propriétaire</a>
+                </p>
             </div>
         </div>
-    </#if>
-    <script>
+        <script>
 
-        document.addEventListener("DOMContentLoaded", (event) => {
-            let login_edit_disabled = getUrlParameter('login_edit_disabled');
-            if (login_edit_disabled) {
-               disableUsername(true);
+            document.addEventListener("DOMContentLoaded", (event) => {
+                let login_edit_disabled = getUrlParameter('login_edit_disabled');
+                if (login_edit_disabled) {
+                disableUsername(true);
+                }
+            });
+
+            function disableUsername(value) {
+                document.getElementById('username').disabled = value;
             }
-        });
 
-        function disableUsername(value) {
-            document.getElementById('username').disabled = value;
-        }
-
-        function getUrlParameter(sParam)
-        {
-            var sPageURL = window.location.search.substring(1);
-            var sURLVariables = sPageURL.split('&');
-            for (var i = 0; i < sURLVariables.length; i++)
+            function getUrlParameter(sParam)
             {
-                var sParameterName = sURLVariables[i].split('=');
-                if (sParameterName[0] == sParam)
+                var sPageURL = window.location.search.substring(1);
+                var sURLVariables = sPageURL.split('&');
+                for (var i = 0; i < sURLVariables.length; i++)
                 {
-                    return sParameterName[1];
+                    var sParameterName = sURLVariables[i].split('=');
+                    if (sParameterName[0] == sParam)
+                    {
+                        return sParameterName[1];
+                    }
                 }
             }
-        }
-    </script>
+
+            document.getElementById("showPassword").addEventListener("change", (event) => {
+                const type = event.target.checked ? "text" : "password";
+                document.getElementById("password").type = type;
+            })
+        </script>
+    </#if>
 </@layout.registrationLayout>

@@ -129,8 +129,8 @@ div.kc-logo-text span {
 }
 
 #kc-info {
-	padding-bottom: 200px;
-	margin-bottom: -200px;
+	margin-top: 0;
+	background-color: var(--background-alt-blue-france);
 }
 
 #kc-info-wrapper {
@@ -326,7 +326,6 @@ a.zocial {
 
 	#kc-info-wrapper {
 		border-top: 1px solid rgba(255, 255, 255, 0.1);
-		margin-top: 15px;
 		padding-top: 15px;
 		padding-left: 0px;
 		padding-right: 15px;
