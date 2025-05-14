@@ -21,7 +21,7 @@
             <div id="kc-form" class="margin-auto max-500 bg-white">
                 <h1 class="fr-mt-2w fr-h2 text-center">${ msg("signup.title") }</h1>
                 <#if realm.password && social.providers??>
-                    <p class="fr-text--xl text-center fr-mb-2w">Inscription avec</p>
+                    <p class="fr-text--xl text-center fr-mb-2w">${msg("register.with")}</p>
                     <div id="kc-social-providers" class="fr-mb-3v text-center ${properties.kcFormSocialAccountSectionClass!}">
                         <ul class="${properties.kcFormSocialAccountListClass!} <#if social.providers?size gt 3>${properties.kcFormSocialAccountListGridClass!}</#if>">
                             <#list social.providers as p>
@@ -39,7 +39,7 @@
                     </div>
                     <div class="text-center fr-mb-2w">
                         <a href="https://app.franceconnect.gouv.fr/en-savoir-plus" id="cQuoiFCGauche" target="_blank" rel="noopener">
-                            Qu'est-ce que FranceConnect?
+                            ${msg("whatIsFranceConnect")}
                         </a>
                         <p class="fr-my-2w small-text">
                             ${ msg("login.france-connect") }
@@ -55,7 +55,7 @@
                             <div class="${properties.kcLabelWrapperClass!}">
                                 <label for="email" class="${properties.kcLabelClass!}">${ msg("login.email") }</label>
                             </div>
-                            <p class="fr-text--xs fr-mb-1w" style="color: #666">Format attendu : nom@exemple.fr</p>
+                            <p class="fr-text--xs fr-mb-1w" style="color: #666">${msg("login.expectedFormat")}</p>
                             <div class="${properties.kcInputWrapperClass!}">
                                 <input type="text" id="email" class="fr-input ${properties.kcInputClass!}" name="email"
                                     value="${(register.formData.email!'')}" autocomplete="email"
@@ -101,19 +101,18 @@
                                         autocomplete="new-password" id="password" type="password">
                                 </div>
                                 <div class="fr-messages-group" id="password-messages" aria-live="polite">
-                                    <p class="fr-message">Votre mot de passe doit contenir :</p>
-                                    <p class="fr-message fr-message--info" data-fr-valid="validé" data-fr-error="en erreur" id="pwd-message-max12">12 caractères minimum</p>
-                                    <p class="fr-message fr-message--info" data-fr-valid="validé" data-fr-error="en erreur" id="pwd-message-special">1 caractère spécial minimum</p>
-                                    <p class="fr-message fr-message--info" data-fr-valid="validé" data-fr-error="en erreur" id="pwd-message-digit">1 chiffre minimum</p>
+                                    <p class="fr-message">${msg("register.password-must")}</p>
+                                    <p class="fr-message fr-message--info" data-fr-valid="validé" data-fr-error="en erreur" id="pwd-message-max12">${msg("register.password-max12")}</p>
+                                    <p class="fr-message fr-message--info" data-fr-valid="validé" data-fr-error="en erreur" id="pwd-message-special">${msg("register.password-special")}</p>
+                                    <p class="fr-message fr-message--info" data-fr-valid="validé" data-fr-error="en erreur" id="pwd-message-digit">${msg("register.password-digit")}</p>
                                 </div>
                                 <div class="fr-password__checkbox fr-checkbox-group fr-checkbox-group--sm">
                                     <input aria-label="Afficher le mot de passe" id="password-show" type="checkbox">
                                     <label class="fr--password__checkbox fr-label" for="password-show">
-                                        Afficher
+                                        ${ msg("login.show") }
                                     </label>
                                 </div>
                             </div>
-
                         </#if>
 
                         <#if recaptchaRequired??>
@@ -124,10 +123,10 @@
                             </div>
                         </#if>
 
-                        <div id="cguGroup" class="fr-checkbox-group">
+                        <div id="cguGroup" class="fr-checkbox-group fr-checkbox-group--sm">
                             <input type="checkbox" id="acceptCgu" value="false">
                             <label for="acceptCgu">
-                                En cochant cette case et en cliquant sur "Je crée mon compte", j’accepte les <a class="cgu" target="_blank" href="https://www.dossierfacile.logement.gouv.fr/cgu">Conditions générales d’utilisation</a> et la <a target="_blank" class="cgu" href="https://www.dossierfacile.logement.gouv.fr/politique-de-confidentialite">Politique de confidentialité</a> de DossierFacile
+                                ${msg("register.cgu")?no_esc}
                             </label>
                         </div>
 
@@ -139,13 +138,13 @@
                     </form>
                 </div>
                 <div class="separator fr-mb-3w"></div>
-                <p class="fr-mb-1w text-center">Vous avez déjà un compte DossierFacile ?</p>
+                <p class="fr-mb-1w text-center">${msg("register.hasAccount")}</p>
                 <a href="<#if realm.password && realm.registrationAllowed && !registrationDisabled??>${url.loginUrl}<#else>https://${properties.appTenantUrl}/signup</#if>" class="fr-btn fr-btn--secondary text-center">
                     ${ msg("login.signin-link") }
                 </a>
                 <div class="separator fr-my-3w"></div>
                 <p class="text-center">
-                    <a href="https://proprietaire.dossier-facile.fr/creation">M’inscrire en tant que propriétaire</a>
+                    <a href="https://proprietaire.dossier-facile.fr/creation">${msg("register.asOwner")}</a>
                 </p>
             </div>
         </div>

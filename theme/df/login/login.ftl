@@ -24,7 +24,7 @@
             <div id="kc-form" class="margin-auto max-500 bg-white">
                 <h1 class="fr-mt-2w fr-h2 text-center">${ msg("login.connection") }</h1>
                 <#if realm.password && social.providers??>
-                    <p class="fr-text--xl text-center fr-mb-2w">Connexion avec</p>
+                    <p class="fr-text--xl text-center fr-mb-2w">${msg("login.connectWith")}</p>
                     <div id="kc-social-providers" class="fr-mb-1w text-center ${properties.kcFormSocialAccountSectionClass!}">
                         <ul class="${properties.kcFormSocialAccountListClass!} <#if social.providers?size gt 3>${properties.kcFormSocialAccountListGridClass!}</#if>">
                             <#list social.providers as p>
@@ -42,7 +42,7 @@
                     </div>
                     <div class="text-center fr-mb-2w">
                         <a href="https://app.franceconnect.gouv.fr/en-savoir-plus" id="cQuoiFCGauche" target="_blank" rel="noopener">
-                            Qu'est-ce que FranceConnect?
+                            ${msg("whatIsFranceConnect")}
                         </a>
                         <p class="fr-my-2w small-text">
                             ${ msg("login.france-connect") }
@@ -89,7 +89,7 @@
                         <form id="kc-form-login" onsubmit="disableUsername(false);login.disabled = true; return true;" action="${url.loginAction}" method="post">
                             <div class="fr-mt-3w fr-input-group <#if messagesPerField.existsError('username','password')>fr-input-group--error</#if> ${properties.kcFormGroupClass!}">
                                 <label for="username" class="fr-label ${properties.kcLabelClass!}">${ msg("login.email") }</label>
-                                <p class="fr-text--xs fr-mb-1w" style="color: #666">Format attendu : nom@exemple.fr</p>
+                                <p class="fr-text--xs fr-mb-1w" style="color: #666">${msg("login.expectedFormat")}</p>
                                 <#if usernameEditDisabled??>
                                     <input id="username" class="fr-input <#if messagesPerField.existsError('username','password')>fr-input--error</#if> ${properties.kcInputClass!}" name="username" value="${(login.username!'')}" type="text" disabled />
                                 <#else>
@@ -110,7 +110,7 @@
                                     <label for="password" class="fr-label ${properties.kcLabelClass!}">${ msg("login.password") }</label>
                                     <div class="fr-checkbox-group fr-checkbox-group--sm fr-ml-auto">
                                         <input id="showPassword" type="checkbox" />
-                                        <label for="showPassword">Afficher</label>
+                                        <label for="showPassword">${ msg("login.show") }</label>
                                     </div>
                                 </div>
                                 <input id="password" class="fr-input ${properties.kcInputClass!} fr-mb-3v" name="password" type="password" autocomplete="current-password"
@@ -119,7 +119,7 @@
                                 <#if realm.resetPasswordAllowed>
                                     <a href="${url.loginResetCredentialsUrl}">${msg("doForgotPassword")}</a>
                                 <#else>
-                                    <a href="https://${properties.appTenantUrl}/forgotten-password" class="blue-text">Mot de passe oublié</a>
+                                    <a href="https://${properties.appTenantUrl}/forgotten-password" class="blue-text">${msg("doForgotPassword")}</a>
                                 </#if>
                             </div>
 
@@ -133,7 +133,7 @@
                                                     <input id="rememberMe" name="rememberMe" type="checkbox">
                                                 </#if>
                                             <label class="fr-label" for="rememberMe">
-                                                Se souvenir de moi
+                                                ${msg("rememberMe")}
                                             </label>
                                         </div>
                                     </#if>
@@ -151,19 +151,19 @@
 
                             <div id="kc-form-buttons" class="${properties.kcFormGroupClass!} fr-my-3w">
                                 <input type="hidden" id="id-hidden-input" name="credentialId" <#if auth.selectedCredential?has_content>value="${auth.selectedCredential}"</#if>/>
-                                <input class="fr-btn ${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonBlockClass!} ${properties.kcButtonLargeClass!}" name="login" id="kc-login" type="submit" value="Se connecter"/>
+                                <input class="fr-btn ${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonBlockClass!} ${properties.kcButtonLargeClass!}" name="login" id="kc-login" type="submit" value="${msg("login.signin-link")}"/>
                             </div>
                         </form>
                     </#if>
                 </div>
                 <div class="separator fr-mb-3w"></div>
-                <p class="fr-mb-1w text-center">Vous n’avez pas de compte DossierFacile ?</p>
+                <p class="fr-mb-1w text-center">${ msg("login.noAccount")}</p>
                 <a href="<#if realm.password && realm.registrationAllowed && !registrationDisabled??>${url.registrationUrl}<#else>https://${properties.appTenantUrl}/signup</#if>" class="fr-btn fr-btn--secondary text-center">
                     ${ msg("login.signup-link") }
                 </a>
                 <div class="separator fr-my-3w"></div>
                 <p class="text-center">
-                    <a href="https://proprietaire.dossier-facile.fr/home">Me connecter en tant que propriétaire</a>
+                    <a href="https://proprietaire.dossier-facile.fr/home">${msg("login.asOwner")}</a>
                 </p>
             </div>
         </div>
