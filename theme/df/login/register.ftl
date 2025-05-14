@@ -37,7 +37,7 @@
                             </#list>
                         </ul>
                     </div>
-                    <p class="fr-mb-2w small-text text-center">
+                    <p class="fr-mb-2w small-text text-center" style="text-wrap: balance">
                         ${ msg("login.france-connect") }
                     </p>
 
