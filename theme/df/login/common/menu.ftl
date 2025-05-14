@@ -46,22 +46,7 @@
 }
 </style>
   <ul class="fr-nav__list">
-    <li class="fr-nav__item">
-      <a href="https://www.dossierfacile.fr/information" class="fr-nav__link">
-        ${msg('menu.information') }
-      </a>
-    </li>
-    <li class="fr-nav__item">
-      <a href="https://www.dossierfacile.fr/blog" class="fr-nav__link">
-        ${msg('menu.blog') }
-      </a>
-    </li>
-    <li class="fr-nav__item">
-      <a href="https://www.dossierfacile.fr/partenaires" class="fr-nav__link">
-        ${msg('menu.partners') }
-      </a>
-    </li>
-    <li class="fr-nav__item">
+    <li class="fr-nav__item fr-mr-auto">
       <a
         href="https://docs.dossierfacile.fr"
         class="fr-nav__link fr-external-link"
