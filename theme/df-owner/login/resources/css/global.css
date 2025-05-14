@@ -14,13 +14,6 @@ body {
   padding: 16px;
 }
 
-.bg-purple {
-  margin: 8px;
-  border-radius: 4px;
-  background-color: #e5e5f4;
-
-}
-
 .blue-text {
  color: #000091;
 }
@@ -84,18 +77,18 @@ li {
 	color: #6a6a6a;
 	font-size: 12px;
 }
-      
+
 .separator::before,
 .separator::after {
 	content: '';
 	flex: 1;
 	border-bottom: 1px solid #cecece;
 }
-      
+
 .separator:not(:empty)::before {
 	margin-right: 2rem;
 }
-      
+
 .separator:not(:empty)::after {
 	margin-left: 2rem;
 }
