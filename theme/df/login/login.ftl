@@ -112,7 +112,7 @@
                                     aria-invalid="<#if messagesPerField.existsError('username','password')>true</#if>"
                                 />
                                 <#if realm.resetPasswordAllowed>
-                                    <a href="${url.loginResetCredentialsUrl}">${msg("doForgotPassword")}</a>
+                                    <a href="${url.loginResetCredentialsUrl}" class="blue-text">${msg("doForgotPassword")}</a>
                                 <#else>
                                     <a href="https://${properties.appTenantUrl}/forgotten-password" class="blue-text">${msg("doForgotPassword")}</a>
                                 </#if>
@@ -158,7 +158,7 @@
                 </a>
                 <div class="separator fr-my-3w"></div>
                 <p class="text-center">
-                    <a href="https://proprietaire.dossierfacile.logement.gouv.fr/home">${msg("login.asOwner")}</a>
+                    <a href="https://proprietaire.dossierfacile.logement.gouv.fr/home" class="blue-text">${msg("login.asOwner")}</a>
                 </p>
             </div>
         </div>
