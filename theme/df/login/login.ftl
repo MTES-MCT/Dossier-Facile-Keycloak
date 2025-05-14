@@ -21,7 +21,7 @@
     <#if section = "header">
     <#elseif section = "form">
         <div class="fr-py-md-5w" style="background-color: var(--background-alt-blue-france)">
-            <div id="kc-form" class="margin-auto max-500 bg-white">
+            <div id="kc-form" class="margin-auto max-720 bg-white">
                 <h1 class="fr-mt-2w fr-h2 text-center">${ msg("login.connection") }</h1>
                 <#if realm.password && social.providers??>
                     <p class="fr-text--xl text-center fr-mb-2w">${msg("login.connectWith")}</p>

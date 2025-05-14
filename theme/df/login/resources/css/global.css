@@ -36,6 +36,10 @@ body {
   max-width: 500px;
 }
 
+.max-720 {
+  max-width: 720px;
+}
+
 .unbox {
   box-shadow: none;
 }
