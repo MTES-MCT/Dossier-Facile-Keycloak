@@ -146,6 +146,8 @@
     </#if>
     <script>
 
+        const password = document.getElementById('password');
+
         function setClass(id, className) {
             const elt = document.getElementById(id);
             if (!elt) return;
@@ -153,9 +155,7 @@
             elt.classList.add('fr-message--' + className);
         }
 
-        function handleSubmit() {
-
-            let password = document.getElementById('password');
+        function checkValidity() {
             let valid = true;
             if (password.value.length < 12) {
                 setClass('pwd-message-max12', 'error');
@@ -175,10 +175,13 @@
             } else {
                 setClass('pwd-message-digit', 'valid');
             }
-            if (!valid) {
-                return false
-            }
+            return valid
+        }
 
+        function handleSubmit() {
+            if (!checkValidity()) {
+                return false;
+            }
             let element = document.getElementById('acceptCgu')
             if (element.checked == true) {
                 const input = document.createElement("input");
@@ -199,6 +202,8 @@
 
             return false;
         }
+
+        password.addEventListener("input", checkValidity)
 
     </script>
 
