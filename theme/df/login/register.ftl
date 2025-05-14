@@ -186,6 +186,11 @@
 
             let element = document.getElementById('acceptCgu')
             if (element.checked == true) {
+                const input = document.createElement("input");
+                input.name = "password-confirm";
+                input.value = document.getElementById("password").value;
+                input.hidden = true;
+                document.getElementById("kc-register-form").appendChild(input);
                 return true;
             }
 
