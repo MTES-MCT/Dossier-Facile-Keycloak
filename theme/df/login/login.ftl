@@ -163,7 +163,7 @@
                 </a>
                 <div class="separator fr-my-3w"></div>
                 <p class="text-center">
-                    <a href="https://proprietaire.dossier-facile.fr/home">${msg("login.asOwner")}</a>
+                    <a href="https://proprietaire.dossierfacile.logement.gouv.fr/home">${msg("login.asOwner")}</a>
                 </p>
             </div>
         </div>

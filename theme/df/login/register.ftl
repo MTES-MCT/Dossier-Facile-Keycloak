@@ -144,7 +144,7 @@
                 </a>
                 <div class="separator fr-my-3w"></div>
                 <p class="text-center">
-                    <a href="https://proprietaire.dossier-facile.fr/creation">${msg("register.asOwner")}</a>
+                    <a href="https://proprietaire.dossierfacile.logement.gouv.fr/creation">${msg("register.asOwner")}</a>
                 </p>
             </div>
         </div>
