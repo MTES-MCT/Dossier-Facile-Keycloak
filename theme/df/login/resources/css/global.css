@@ -222,11 +222,6 @@ li {
   background: var(--light-background-default-grey, #FFF);
 }
 
-.card-container div {
-  display: block;
-  width: 100%;
-}
-
 .card-container>form {
   width: 100%
 }
