@@ -97,7 +97,7 @@
                                 </div>
                                 <div class="fr-messages-group" id="password-messages" aria-live="polite">
                                     <p class="fr-message">${msg("register.password-must")}</p>
-                                    <p class="fr-message fr-message--info" data-fr-valid="validé" data-fr-error="en erreur" id="pwd-message-max12">${msg("register.password-max12")}</p>
+                                    <p class="fr-message fr-message--info" data-fr-valid="validé" data-fr-error="en erreur" id="pwd-message-min12">${msg("register.password-min12")}</p>
                                     <p class="fr-message fr-message--info" data-fr-valid="validé" data-fr-error="en erreur" id="pwd-message-special">${msg("register.password-special")}</p>
                                     <p class="fr-message fr-message--info" data-fr-valid="validé" data-fr-error="en erreur" id="pwd-message-digit">${msg("register.password-digit")}</p>
                                 </div>
@@ -158,10 +158,10 @@
         function checkValidity() {
             let valid = true;
             if (password.value.length < 12) {
-                setClass('pwd-message-max12', 'error');
+                setClass('pwd-message-min12', 'error');
                 valid = false;
             } else {
-                setClass('pwd-message-max12', 'valid');
+                setClass('pwd-message-min12', 'valid');
             }
             if (!/[^a-z0-9]/i.test(password.value)) {
                 setClass('pwd-message-special', 'error');
