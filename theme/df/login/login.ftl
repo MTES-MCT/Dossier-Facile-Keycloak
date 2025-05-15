@@ -21,33 +21,28 @@
     <#if section = "header">
     <#elseif section = "form">
         <div class="fr-py-md-5w" style="background-color: var(--background-alt-blue-france)">
-            <div id="kc-form" class="margin-auto max-500 bg-white">
+            <div id="kc-form" class="margin-auto max-720 bg-white">
                 <h1 class="fr-mt-2w fr-h2 text-center">${ msg("login.connection") }</h1>
                 <#if realm.password && social.providers??>
                     <p class="fr-text--xl text-center fr-mb-2w">${msg("login.connectWith")}</p>
                     <div id="kc-social-providers" class="fr-mb-1w text-center ${properties.kcFormSocialAccountSectionClass!}">
                         <ul class="${properties.kcFormSocialAccountListClass!} <#if social.providers?size gt 3>${properties.kcFormSocialAccountListGridClass!}</#if>">
                             <#list social.providers as p>
-                                <a id="social-${p.alias}" class="inline-block ${properties.kcFormSocialAccountListButtonClass!} <#if social.providers?size gt 3>${properties.kcFormSocialAccountGridItem!}</#if>"
-                                        type="button" href="${p.loginUrl}">
-                                    <#if p.iconClasses?has_content>
-                                        <i class="${properties.kcCommonLogoIdP!} ${p.iconClasses!}" aria-hidden="true"></i>
-                                        <span class="${properties.kcFormSocialAccountNameClass!} kc-social-icon-text">${p.displayName!}</span>
-                                    <#else>
-                                        <span class="${properties.kcFormSocialAccountNameClass!}">${p.displayName!}</span>
-                                    </#if>
-                                </a>
+                                <div class="fr-connect-group inline-block">
+                                    <button type="button" id="social-${p.alias}" class="fr-connect btn-link" onclick="location.href='${p.loginUrl}'">
+                                        <span class="fr-connect__login">S’identifier avec</span>
+                                        <span class="fr-connect__brand">FranceConnect</span>
+                                    </button>
+                                    <p class="fr-mb-1w">
+                                        <a href="https://franceconnect.gouv.fr/" target="_blank"  rel="noopener" title="Qu’est-ce que FranceConnect ? - nouvelle fenêtre">${msg("whatIsFranceConnect")}</a>
+                                    </p>
+                                </div>
                             </#list>
                         </ul>
                     </div>
-                    <div class="text-center fr-mb-2w">
-                        <a href="https://app.franceconnect.gouv.fr/en-savoir-plus" id="cQuoiFCGauche" target="_blank" rel="noopener">
-                            ${msg("whatIsFranceConnect")}
-                        </a>
-                        <p class="fr-my-2w small-text">
-                            ${ msg("login.france-connect") }
-                        </p>
-                    </div>
+                    <p class="fr-mb-2w small-text text-center" style="text-wrap: balance">
+                        ${ msg("login.france-connect") }
+                    </p>
 
                     <div class="separator fr-text--md fr-text--bold" style="color: var(--text-active-grey)">OU</div>
                 </#if>
@@ -117,7 +112,7 @@
                                     aria-invalid="<#if messagesPerField.existsError('username','password')>true</#if>"
                                 />
                                 <#if realm.resetPasswordAllowed>
-                                    <a href="${url.loginResetCredentialsUrl}">${msg("doForgotPassword")}</a>
+                                    <a href="${url.loginResetCredentialsUrl}" class="blue-text">${msg("doForgotPassword")}</a>
                                 <#else>
                                     <a href="https://${properties.appTenantUrl}/forgotten-password" class="blue-text">${msg("doForgotPassword")}</a>
                                 </#if>
@@ -163,7 +158,7 @@
                 </a>
                 <div class="separator fr-my-3w"></div>
                 <p class="text-center">
-                    <a href="https://proprietaire.dossier-facile.fr/home">${msg("login.asOwner")}</a>
+                    <a href="https://proprietaire.dossierfacile.logement.gouv.fr/home" class="blue-text">${msg("login.asOwner")}</a>
                 </p>
             </div>
         </div>

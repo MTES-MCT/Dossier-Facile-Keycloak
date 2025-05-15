@@ -18,33 +18,28 @@
     <#if section = "header">
     <#elseif section = "form">
         <div class="fr-py-md-5w" style="background-color: var(--background-alt-blue-france)">
-            <div id="kc-form" class="margin-auto max-500 bg-white">
+            <div id="kc-form" class="margin-auto max-720 bg-white">
                 <h1 class="fr-mt-2w fr-h2 text-center">${ msg("signup.title") }</h1>
                 <#if realm.password && social.providers??>
                     <p class="fr-text--xl text-center fr-mb-2w">${msg("register.with")}</p>
                     <div id="kc-social-providers" class="fr-mb-3v text-center ${properties.kcFormSocialAccountSectionClass!}">
                         <ul class="${properties.kcFormSocialAccountListClass!} <#if social.providers?size gt 3>${properties.kcFormSocialAccountListGridClass!}</#if>">
                             <#list social.providers as p>
-                                <a id="social-${p.alias}" class="inline-block ${properties.kcFormSocialAccountListButtonClass!} <#if social.providers?size gt 3>${properties.kcFormSocialAccountGridItem!}</#if>"
-                                        type="button" href="${p.loginUrl}">
-                                    <#if p.iconClasses?has_content>
-                                        <i class="${properties.kcCommonLogoIdP!} ${p.iconClasses!}" aria-hidden="true"></i>
-                                        <span class="${properties.kcFormSocialAccountNameClass!} kc-social-icon-text">${p.displayName!}</span>
-                                    <#else>
-                                        <span class="${properties.kcFormSocialAccountNameClass!}">${p.displayName!}</span>
-                                    </#if>
-                                </a>
+                                <div class="fr-connect-group inline-block">
+                                    <button type="button" id="social-${p.alias}" class="fr-connect btn-link" onclick="location.href='${p.loginUrl}'">
+                                        <span class="fr-connect__login">S’identifier avec</span>
+                                        <span class="fr-connect__brand">FranceConnect</span>
+                                    </button>
+                                    <p class="fr-mb-1w">
+                                        <a href="https://franceconnect.gouv.fr/" target="_blank"  rel="noopener" title="Qu’est-ce que FranceConnect ? - nouvelle fenêtre">${msg("whatIsFranceConnect")}</a>
+                                    </p>
+                                </div>
                             </#list>
                         </ul>
                     </div>
-                    <div class="text-center fr-mb-2w">
-                        <a href="https://app.franceconnect.gouv.fr/en-savoir-plus" id="cQuoiFCGauche" target="_blank" rel="noopener">
-                            ${msg("whatIsFranceConnect")}
-                        </a>
-                        <p class="fr-my-2w small-text">
-                            ${ msg("login.france-connect") }
-                        </p>
-                    </div>
+                    <p class="fr-mb-2w small-text text-center" style="text-wrap: balance">
+                        ${ msg("login.france-connect") }
+                    </p>
 
                     <div class="separator fr-text--md fr-text--bold" style="color: var(--text-active-grey)">OU</div>
                 </#if>
@@ -144,12 +139,14 @@
                 </a>
                 <div class="separator fr-my-3w"></div>
                 <p class="text-center">
-                    <a href="https://proprietaire.dossier-facile.fr/creation">${msg("register.asOwner")}</a>
+                    <a href="https://proprietaire.dossierfacile.logement.gouv.fr/creation" class="blue-text">${msg("register.asOwner")}</a>
                 </p>
             </div>
         </div>
     </#if>
     <script>
+
+        const password = document.getElementById('password');
 
         function setClass(id, className) {
             const elt = document.getElementById(id);
@@ -158,9 +155,7 @@
             elt.classList.add('fr-message--' + className);
         }
 
-        function handleSubmit() {
-
-            let password = document.getElementById('password');
+        function checkValidity() {
             let valid = true;
             if (password.value.length < 12) {
                 setClass('pwd-message-max12', 'error');
@@ -180,12 +175,20 @@
             } else {
                 setClass('pwd-message-digit', 'valid');
             }
-            if (!valid) {
-                return false
-            }
+            return valid
+        }
 
+        function handleSubmit() {
+            if (!checkValidity()) {
+                return false;
+            }
             let element = document.getElementById('acceptCgu')
             if (element.checked == true) {
+                const input = document.createElement("input");
+                input.name = "password-confirm";
+                input.value = document.getElementById("password").value;
+                input.hidden = true;
+                document.getElementById("kc-register-form").appendChild(input);
                 return true;
             }
 
@@ -199,6 +202,8 @@
 
             return false;
         }
+
+        password.addEventListener("input", checkValidity)
 
     </script>
 
