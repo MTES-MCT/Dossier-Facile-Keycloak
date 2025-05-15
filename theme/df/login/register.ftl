@@ -5,7 +5,7 @@
                 <a class="fr-link" href="#social-oidc">Connexion avec FranceConnect</a>
             </li>
             <li>
-                <a class="fr-link" href="#username">Connexion avec e-mail</a>
+                <a class="fr-link" href="#email">Connexion avec e-mail</a>
             </li>
             <li>
                 <a class="fr-link" href="#footer">Pied de page</a>
@@ -46,23 +46,20 @@
                 <div id="kc-form-wrapper">
                     <form id="kc-register-form" class="${properties.kcFormClass!}" onsubmit="return handleSubmit();"  action="${url.registrationAction}" method="post">
 
-                        <div class="fr-col-12 fr-mb-3w ${properties.kcFormGroupClass!}">
-                            <div class="${properties.kcLabelWrapperClass!}">
-                                <label for="email" class="${properties.kcLabelClass!}">${ msg("login.email") }</label>
-                            </div>
-                            <p class="fr-text--xs fr-mb-1w" style="color: #666">${msg("login.expectedFormat")}</p>
-                            <div class="${properties.kcInputWrapperClass!}">
-                                <input type="text" id="email" class="fr-input ${properties.kcInputClass!}" name="email"
-                                    value="${(register.formData.email!'')}" autocomplete="email"
-                                    aria-invalid="<#if messagesPerField.existsError('email')>true</#if>"
-                                />
-
-                                <#if messagesPerField.existsError('email')>
-                                    <span id="input-error-email" class="fr-mt-1w ${properties.kcInputErrorMessageClass!}" aria-live="polite">
-                                        ${kcSanitize(messagesPerField.get('email'))?no_esc}
-                                    </span>
-                                </#if>
-                            </div>
+                        <div id="email-input-group" class="fr-mb-3w fr-input-group ${properties.kcFormGroupClass!}">
+                            <label for="email" class="fr-label ${properties.kcLabelClass!}">${ msg("login.email") }
+                                <span class="fr-hint-text">${msg("login.expectedFormat")}</span>
+                            </label>
+                            <input type="text" id="email" class="fr-input ${properties.kcInputClass!}" name="email"
+                                value="${(register.formData.email!'')}" autocomplete="email"
+                                aria-invalid="<#if messagesPerField.existsError('email')>true</#if>"
+                            />
+                            <p id="invalid-email-error" class="fr-error-text fr-hidden">${msg("register.validEmail")}</p>
+                            <#if messagesPerField.existsError('email')>
+                                <span id="input-error-email" class="fr-mt-1w ${properties.kcInputErrorMessageClass!}" aria-live="polite">
+                                    ${kcSanitize(messagesPerField.get('email'))?no_esc}
+                                </span>
+                            </#if>
                         </div>
 
                         <#if !realm.registrationEmailAsUsername>
@@ -86,7 +83,7 @@
                         </#if>
 
                         <#if passwordRequired??>
-                            <div class="fr-password fr-mb-3w">
+                            <div id="password-input-group" class="fr-password fr-mb-3w">
                                 <label class="fr-label" for="password">
                                     ${ msg("password") }
                                 </label>
@@ -147,6 +144,11 @@
     <script>
 
         const password = document.getElementById('password');
+        const passwordGroup = document.getElementById('password-input-group');
+        const emailField = document.getElementById('email');
+        const emailGroup = document.getElementById('email-input-group');
+        const emailError = document.getElementById("invalid-email-error");
+        const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
         function setClass(id, className) {
             const elt = document.getElementById(id);
@@ -155,7 +157,7 @@
             elt.classList.add('fr-message--' + className);
         }
 
-        function checkValidity() {
+        function checkPasswordValidity() {
             let valid = true;
             if (password.value.length < 12) {
                 setClass('pwd-message-min12', 'error');
@@ -175,11 +177,19 @@
             } else {
                 setClass('pwd-message-digit', 'valid');
             }
+            passwordGroup.classList[valid ? 'remove' : 'add']('fr-input-group--error');
             return valid
         }
 
+        function checkEmailValidity() {
+            const valid = EMAIL_PATTERN.test(emailField.value);
+            emailGroup.classList[valid ? 'remove' : 'add']('fr-input-group--error');
+            emailError.classList[valid ? 'add' : 'remove']('fr-hidden');
+            return valid;
+        }
+
         function handleSubmit() {
-            if (!checkValidity()) {
+            if (!checkEmailValidity() || !checkPasswordValidity()) {
                 return false;
             }
             let element = document.getElementById('acceptCgu')
@@ -203,7 +213,7 @@
             return false;
         }
 
-        password.addEventListener("input", checkValidity)
+        password.addEventListener("input", checkPasswordValidity)
 
     </script>
 
