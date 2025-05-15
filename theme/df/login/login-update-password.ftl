@@ -10,33 +10,36 @@
                     <input type="text" id="username" name="username" value="${username}" autocomplete="username" readonly="readonly" style="display:none;"/>
                     <input type="password" id="password" name="password" autocomplete="current-password" style="display:none;"/>
 
-                    <div class="fr-password ${properties.kcFormGroupClass!}" id="password-update">
-                        <label class="fr-label" for="password-update-input">
+                    <div class="fr-password fr-mb-3v ${properties.kcFormGroupClass!}" id="password-update">
+                        <label class="fr-label" for="password-new">
                             ${msg("passwordNew")}
                         </label>
                         <div class="fr-input-wrap">
-                            <input class="fr-password__input fr-input" aria-describedby="password-update-input-messages" aria-required="true"
-                                        type="password" id="password-new" name="password-new" class="${properties.kcInputClass!}"
-                                                               autofocus autocomplete="new-password"
+                            <input class="fr-password__input fr-input ${properties.kcInputClass!}" aria-describedby="password-messages"
+                                aria-required="true" type="password" id="password-new" name="password-new" autocapitalize="off" autocorrect="off"
+                                autofocus autocomplete="new-password"
                                                                aria-invalid="<#if messagesPerField.existsError('password','password-confirm')>true</#if>"
                                                         />
                         </div>
-                        <div class="fr-messages-group" id="password-1138-input-messages" aria-live="assertive">
-                            <p class="fr-message" >Votre mot de passe doit contenir :</p>
-                            <p class="fr-message fr-message--info">12 caractères minimum</p>
-                            <p class="fr-message fr-message--info">1 caractère spécial minimum</p>
-                            <p class="fr-message fr-message--info">1 chiffre minimum</p>
+                        <div class="fr-messages-group" id="password-messages" aria-live="polite">
+                            <p class="fr-message">${msg("register.password-must")}</p>
+                            <p class="fr-message fr-message--info" data-fr-valid="validé" data-fr-error="en erreur" id="pwd-message-min12">${msg("register.password-min12")}</p>
+                            <p class="fr-message fr-message--info" data-fr-valid="validé" data-fr-error="en erreur" id="pwd-message-special">${msg("register.password-special")}</p>
+                            <p class="fr-message fr-message--info" data-fr-valid="validé" data-fr-error="en erreur" id="pwd-message-digit">${msg("register.password-digit")}</p>
                         </div>
-
-                        <div class="${properties.kcInputWrapperClass!}">
-                            <#if messagesPerField.existsError('password')>
-                                <div class="alert-error">
-                                    <span id="input-error-password" class="${properties.kcInputErrorMessageClass!}" aria-live="polite">
-                                        ${kcSanitize(messagesPerField.get('password'))?no_esc}
-                                    </span>
-                                </div>
-                            </#if>
+                        <div class="fr-password__checkbox fr-checkbox-group fr-checkbox-group--sm">
+                            <input aria-label="Afficher le mot de passe" id="password-show" type="checkbox">
+                            <label class="fr--password__checkbox fr-label" for="password-show">
+                                ${ msg("login.show") }
+                            </label>
                         </div>
+                        <#if messagesPerField.existsError('password')>
+                            <div class="alert-error">
+                                <span id="input-error-password" class="${properties.kcInputErrorMessageClass!}" aria-live="polite">
+                                    ${kcSanitize(messagesPerField.get('password'))?no_esc}
+                                </span>
+                            </div>
+                        </#if>
                     </div>
 
 
@@ -48,16 +51,20 @@
                                    autocomplete="new-password"
                                    aria-invalid="<#if messagesPerField.existsError('password-confirm')>true</#if>"
                             />
-
-                            <#if messagesPerField.existsError('password-confirm')>
-                                <div class="alert-error">
-                                    <span id="input-error-password-confirm" class="${properties.kcInputErrorMessageClass!}" aria-live="polite">
-                                        ${kcSanitize(messagesPerField.get('password-confirm'))?no_esc}
-                                    </span>
-                                </div>
-                            </#if>
-
                         </div>
+                        <div class="fr-password__checkbox fr-checkbox-group fr-checkbox-group--sm">
+                            <input aria-label="Afficher le mot de passe" id="password-confirm-show" type="checkbox">
+                            <label class="fr--password__checkbox fr-label" for="password-confirm-show">
+                                ${ msg("login.show") }
+                            </label>
+                        </div>
+                        <#if messagesPerField.existsError('password-confirm')>
+                            <div class="alert-error">
+                                <span id="input-error-password-confirm" class="${properties.kcInputErrorMessageClass!}" aria-live="polite">
+                                    ${kcSanitize(messagesPerField.get('password-confirm'))?no_esc}
+                                </span>
+                            </div>
+                        </#if>
                     </div>
 
                     <div class="${properties.kcFormGroupClass!}">
@@ -83,5 +90,49 @@
                 </form>
             </div>
         </div>
+        <script>
+            const password = document.getElementById('password-new');
+            const passwordGroup = document.getElementById('password-update');
+
+            function setClass(id, className) {
+                const elt = document.getElementById(id);
+                if (!elt) return;
+                elt.classList.remove('fr-message--info', 'fr-message--error', 'fr-message--valid');
+                elt.classList.add('fr-message--' + className);
+            }
+
+            function checkPasswordValidity() {
+                let valid = true;
+                if (password.value.length < 12) {
+                    setClass('pwd-message-min12', 'error');
+                    valid = false;
+                } else {
+                    setClass('pwd-message-min12', 'valid');
+                }
+                if (!/[^a-z0-9]/i.test(password.value)) {
+                    setClass('pwd-message-special', 'error');
+                    valid = false;
+                } else {
+                    setClass('pwd-message-special', 'valid');
+                }
+                if (!/[0-9]/.test(password.value)) {
+                    setClass('pwd-message-digit', 'error');
+                    valid = false;
+                } else {
+                    setClass('pwd-message-digit', 'valid');
+                }
+                passwordGroup.classList[valid ? 'remove' : 'add']('fr-input-group--error');
+                return valid
+            }
+
+            function handleSubmit(event) {
+                if (!checkPasswordValidity()) {
+                    event.preventDefault();
+                }
+            }
+
+            password.addEventListener("input", checkPasswordValidity);
+            document.getElementById('kc-passwd-update-form').addEventListener("submit", handleSubmit)
+        </script>
     </#if>
 </@layout.registrationLayout>
