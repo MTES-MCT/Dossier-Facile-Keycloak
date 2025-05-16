@@ -46,7 +46,7 @@
                 <div id="kc-form-wrapper">
                     <form id="kc-register-form" class="${properties.kcFormClass!}" onsubmit="return handleSubmit();"  action="${url.registrationAction}" method="post">
 
-                        <div id="email-input-group" class="fr-mb-3w fr-input-group ${properties.kcFormGroupClass!}">
+                        <div id="email-input-group" class="fr-mb-3w fr-input-group ${properties.kcFormGroupClass!} <#if messagesPerField.existsError('email')>fr-input-group--error</#if>">
                             <label for="email" class="fr-label ${properties.kcLabelClass!}">${ msg("login.email") }
                                 <span class="fr-hint-text">${msg("login.expectedFormat")}</span>
                             </label>
@@ -56,9 +56,9 @@
                             />
                             <p id="invalid-email-error" class="fr-error-text fr-hidden">${msg("register.validEmail")}</p>
                             <#if messagesPerField.existsError('email')>
-                                <span id="input-error-email" class="fr-mt-1w ${properties.kcInputErrorMessageClass!}" aria-live="polite">
+                                <p class="fr-error-text ${properties.kcInputErrorMessageClass!}" aria-live="polite">
                                     ${kcSanitize(messagesPerField.get('email'))?no_esc}
-                                </span>
+                                </p>
                             </#if>
                         </div>
 
