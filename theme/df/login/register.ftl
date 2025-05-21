@@ -150,34 +150,27 @@
         const emailError = document.getElementById("invalid-email-error");
         const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-        function setClass(id, className) {
+        function updateElement(id, valid, isSubmit) {
             const elt = document.getElementById(id);
-            if (!elt) return;
-            elt.classList.remove('fr-message--info', 'fr-message--error', 'fr-message--valid');
-            elt.classList.add('fr-message--' + className);
+            let showError = false;
+            if (valid) {
+                elt.classList.remove('fr-message--info', 'fr-message--error');
+                elt.classList.add('fr-message--valid');
+            } else if (elt.classList.contains('fr-message--valid') || isSubmit) {
+                elt.classList.remove('fr-message--info', 'fr-message--valid');
+                elt.classList.add('fr-message--error');
+                showError = true;
+            }
+            return [valid, showError];
         }
 
-        function checkPasswordValidity() {
-            let valid = true;
-            if (password.value.length < 12) {
-                setClass('pwd-message-min12', 'error');
-                valid = false;
-            } else {
-                setClass('pwd-message-min12', 'valid');
-            }
-            if (!/[^a-z0-9]/i.test(password.value)) {
-                setClass('pwd-message-special', 'error');
-                valid = false;
-            } else {
-                setClass('pwd-message-special', 'valid');
-            }
-            if (!/[0-9]/.test(password.value)) {
-                setClass('pwd-message-digit', 'error');
-                valid = false;
-            } else {
-                setClass('pwd-message-digit', 'valid');
-            }
-            passwordGroup.classList[valid ? 'remove' : 'add']('fr-input-group--error');
+        function checkPasswordValidity(isSubmit) {
+            const [v1, e1] = updateElement('pwd-message-min12', password.value.length >= 12, isSubmit);
+            const [v2, e2] = updateElement('pwd-message-special', /[^a-z0-9]/i.test(password.value), isSubmit);
+            const [v3, e3] = updateElement('pwd-message-digit', /[0-9]/.test(password.value), isSubmit);
+            const valid = v1 && v2 && v3;
+            const showGroupError = isSubmit ? !valid : e1 || e2 || e3;
+            passwordGroup.classList[showGroupError ? 'add' : 'remove']('fr-input-group--error');
             return valid
         }
 
@@ -189,7 +182,7 @@
         }
 
         function handleSubmit() {
-            if (!checkEmailValidity() || !checkPasswordValidity()) {
+            if (!checkEmailValidity() || !checkPasswordValidity(true)) {
                 return false;
             }
             let element = document.getElementById('acceptCgu')
@@ -213,7 +206,7 @@
             return false;
         }
 
-        password.addEventListener("input", checkPasswordValidity)
+        password.addEventListener("input", () => checkPasswordValidity(false))
 
     </script>
 

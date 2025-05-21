@@ -202,15 +202,14 @@ li {
   .card-container {
     margin: 80px 80px 5px 80px;
     width: 600px;
-    padding: 400px;
+    padding: 3rem;
   }
 }
 
 @media (max-width: 600px) {
   .card-container {
-    margin: 20px 20px 2px 20px;
-    width: 320px;
-    padding: 20px;
+    margin: 0;
+    padding: 1rem;
   }
 }
 
